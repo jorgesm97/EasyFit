@@ -21,14 +21,15 @@ export class AppComponent {
   
   public addComida()
   {
-    this.lista.push(this.cod_comida);
-    let p = this.cod_comida[1];
-    this.total += p;
-    console.log(this.cod_comida);
-    console.log(p);
+    // modificar cadenar para formar tupla [string, number]
+    let str = this.cod_comida.toString().split(",");
+    let precio = parseFloat(str[1]);
+    let nombre = str[0];
+    this.lista.push([nombre, precio]);
+    this.total += precio;
+    console.log([nombre, precio]);
     console.log(this.total);
     document.getElementById('idTotal').innerHTML = this.total.toString();
-   
   }
   
   public delComida(i)

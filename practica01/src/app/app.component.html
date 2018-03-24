@@ -1,21 +1,23 @@
+<div style="background-color:coral;">
+  <form class='classform1' #f='ngForm'>
+    <label>Consumicion:</label>
+    <select name='lstComidas' [(ngModel)]='cod_comida'>
+      <option *ngFor='let comida of comidas'>{{comida}}</option>
+    </select>
+    <button type='button' (click)='addComida()'>+</button>
+    </form>
+    
+    <br/>
+    <h2>Consumiciones:</h2>
+    <br/>
+    <h5>Producto</h5>
+    
+    <p *ngFor='let elemento of lista; let i=index'>
+      {{elemento}}
+      <button type='button' (click)='delComida(i)'>-</button>
+    </p>
 
-<form class='classform1' #f='ngForm'>
-<label>Consumicion:</label>
-<select name='lstComidas' [(ngModel)]='cod_comida'>
-	<option *ngFor='let comida of comidas' value='{{[comida[0], comida[1]]}}'>{{comida}}</option>
-</select>
-<button type='button' (click)='addComida()'>+</button>
-</form>
-
-<br/>
-<h2>Consumiciones:</h2>
-<br/>
-<h5>Producto</h5>
-
-<p *ngFor='let elemento of lista; let i=index'>
-    <button type='button' (click)='delComida(i)'>-</button>
-	{{elemento}}
-</p>
-<p>
-  Total = <label for="total" id="idTotal"></label>
-</p>
+    <p>
+      Total = <label for="total" id="idTotal"></label>
+    </p>    
+</div>
