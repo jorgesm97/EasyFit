@@ -11,4 +11,9 @@ export class HomePage {
 
   }
 
+  irPagSiguiente()
+  {
+	  this.navCtrl.push('PrincipalPage');
+  }
+
 }
