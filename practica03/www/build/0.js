@@ -75,12 +75,15 @@ var PrincipalPage = /** @class */ (function () {
     PrincipalPage.prototype.irHome = function () {
         this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_2__home_home__["a" /* HomePage */]);
     };
+    PrincipalPage.prototype.irPagAnterior = function () {
+        this.navCtrl.pop();
+    };
     PrincipalPage.prototype.irPagSiguiente = function () {
         this.navCtrl.push('HomeEntrenadorPage');
     };
     PrincipalPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-principal',template:/*ion-inline-start:"C:\Users\Geetika\Documents\GitHub\EasyFit\practica03\src\pages\principal\principal.html"*/'<!--\n  Generated template for the PrincipalPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>principal</ion-title>\n  </ion-navbar>\n\n</ion-header>\n<ion-content padding>\n  <h1>Crear Cuenta</h1>\n  <hr/>\n\n  <button ion-button icon-only (click)="irHome()">\n    <ion-icon name="home"></ion-icon>\n  </button>\n  <br/>\n\n  <button ion-button color="light" icon-left small (click)="irPagSiguiente()">\n    Siguiente\n    <ion-icon name=\'arrow-forward\'></ion-icon>\n    </button>\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"C:\Users\Geetika\Documents\GitHub\EasyFit\practica03\src\pages\principal\principal.html"*/,
+            selector: 'page-principal',template:/*ion-inline-start:"C:\Users\Geetika\Documents\GitHub\EasyFit\practica03\src\pages\principal\principal.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Crear Cuenta</ion-title>\n  </ion-navbar>\n\n</ion-header>\n<ion-content padding>\n  <h1>Crear Cuenta</h1>\n  <hr/>\n\n  <button ion-button icon-only (click)="irHome()">\n    <ion-icon name="home"></ion-icon>\n  </button>\n  <br/>\n\n  <button ion-button color="light" icon-left small (click)="irPagSiguiente()">\n    <ion-icon name=\'md-arrow-forward\'></ion-icon>\n  </button>\n  <br/>\n\n  <button ion-button color="light" icon-left small (click)="irPagAnterior()">\n    <ion-icon name=\'md-arrow-back\'></ion-icon>\n  </button>\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"C:\Users\Geetika\Documents\GitHub\EasyFit\practica03\src\pages\principal\principal.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]])
     ], PrincipalPage);

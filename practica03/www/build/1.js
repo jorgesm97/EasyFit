@@ -75,9 +75,12 @@ var HomeEntrenadorPage = /** @class */ (function () {
     HomeEntrenadorPage.prototype.irHome = function () {
         this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_2__home_home__["a" /* HomePage */]);
     };
+    HomeEntrenadorPage.prototype.irPagAnterior = function () {
+        this.navCtrl.pop();
+    };
     HomeEntrenadorPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home-entrenador',template:/*ion-inline-start:"C:\Users\Geetika\Documents\GitHub\EasyFit\practica03\src\pages\home-entrenador\home-entrenador.html"*/'<ion-content padding>\n  <h1>Bienvenido, Entrenador!</h1>\n  <hr/>\n\n  <button ion-button icon-only (click)="irHome()">\n    <ion-icon name="home"></ion-icon>\n  </button>\n  <br/>\n\n<ion-content padding>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Geetika\Documents\GitHub\EasyFit\practica03\src\pages\home-entrenador\home-entrenador.html"*/,
+            selector: 'page-home-entrenador',template:/*ion-inline-start:"C:\Users\Geetika\Documents\GitHub\EasyFit\practica03\src\pages\home-entrenador\home-entrenador.html"*/'<ion-content padding>\n  <h1>Bienvenido, Entrenador!</h1>\n  <hr/>\n\n  <button ion-button icon-only (click)="irHome()">\n    <ion-icon name="home"></ion-icon>\n  </button>\n  <br/>\n\n  <button ion-button color="light" icon-left small (click)="irPagAnterior()">\n    <ion-icon name=\'md-arrow-back\'></ion-icon>\n  </button>\n\n<ion-content padding>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Geetika\Documents\GitHub\EasyFit\practica03\src\pages\home-entrenador\home-entrenador.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]])
     ], HomeEntrenadorPage);

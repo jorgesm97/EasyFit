@@ -23,13 +23,15 @@ export class PrincipalPage {
     console.log('ionViewDidLoad PrincipalPage');
   }
 
-  irHome()
-  {
+  irHome() {
 	  this.navCtrl.setRoot(HomePage);
   }
 
-  irPagSiguiente()
-  {
+  irPagAnterior() {
+	  this.navCtrl.pop();
+  }
+
+  irPagSiguiente() {
 	  this.navCtrl.push('HomeEntrenadorPage');
   }
 

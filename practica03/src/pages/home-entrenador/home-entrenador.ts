@@ -26,4 +26,8 @@ export class HomeEntrenadorPage {
   irHome() {
     this.navCtrl.setRoot(HomePage);
   }
+
+  irPagAnterior() {
+	  this.navCtrl.pop();
+  }
 }
