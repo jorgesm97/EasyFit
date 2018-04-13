@@ -6,29 +6,30 @@
 
 </ion-header>
 <ion-content padding>
-  <h1>Crear Cuenta</h1>
-  <hr/>
-
   <button ion-button icon-only (click)="irHome()">
     <ion-icon name="home"></ion-icon>
   </button>
-  <br/>
+  <button ion-button (click)="irPagAnterior()">
+      <ion-icon name='md-arrow-back'></ion-icon>
+  </button>
 
-  <button ion-button color="light" icon-left small (click)="irPagSiguienteEnt()">
-    Si el usuario es entrenador
-    <ion-icon name='md-arrow-forward'></ion-icon>
+  <h1>Crear tu cuenta</h1>
+  <h5>Consigue una vida saludable</h5>
+  <hr/>
+
+  <ion-item>
+      <ion-label>¿Eres entrenador o deportista?</ion-label>
+  </ion-item>
+
+  <button ion-button (click)="irPagSiguienteEnt()">
+    Entrenador
   </button>
   <br/>
 
-  <button ion-button color="light" icon-left small (click)="irPagSiguienteDep()">
-      Si el usuario es deportista
-      <ion-icon name='md-arrow-forward'></ion-icon>
+  <button ion-button (click)="irPagSiguienteDep()">
+      Deportista
   </button>
   <br/>
-
-  <button ion-button color="light" icon-left small (click)="irPagAnterior()">
-    <ion-icon name='md-arrow-back'></ion-icon>
-  </button>
 
 <ion-content padding>
 
