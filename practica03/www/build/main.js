@@ -1,4 +1,4 @@
-webpackJsonp([2],{
+webpackJsonp([3],{
 
 /***/ 109:
 /***/ (function(module, exports) {
@@ -21,12 +21,16 @@ webpackEmptyAsyncContext.id = 109;
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"../pages/home-entrenador/home-entrenador.module": [
+	"../pages/home-deportista/home-deportista.module": [
 		269,
+		2
+	],
+	"../pages/home-entrenador/home-entrenador.module": [
+		270,
 		1
 	],
 	"../pages/principal/principal.module": [
-		270,
+		271,
 		0
 	]
 };
@@ -98,6 +102,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */], {}, {
                     links: [
+                        { loadChildren: '../pages/home-deportista/home-deportista.module#HomeDeportistaPageModule', name: 'HomeDeportistaPage', segment: 'home-deportista', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/home-entrenador/home-entrenador.module#HomeEntrenadorPageModule', name: 'HomeEntrenadorPage', segment: 'home-entrenador', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/principal/principal.module#PrincipalPageModule', name: 'PrincipalPage', segment: 'principal', priority: 'low', defaultHistory: [] }
                     ]

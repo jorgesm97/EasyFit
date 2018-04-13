@@ -31,8 +31,11 @@ export class PrincipalPage {
 	  this.navCtrl.pop();
   }
 
-  irPagSiguiente() {
+  irPagSiguienteEnt() {
 	  this.navCtrl.push('HomeEntrenadorPage');
   }
 
+  irPagSiguienteDep() {
+	  this.navCtrl.push('HomeDeportistaPage');
+  }
 }
