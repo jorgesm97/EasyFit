@@ -1,4 +1,4 @@
-webpackJsonp([3],{
+webpackJsonp([5],{
 
 /***/ 109:
 /***/ (function(module, exports) {
@@ -21,16 +21,24 @@ webpackEmptyAsyncContext.id = 109;
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"../pages/home-deportista/home-deportista.module": [
+	"../pages/crear-cuenta1/crear-cuenta1.module": [
 		269,
+		4
+	],
+	"../pages/crear-cuenta2/crear-cuenta2.module": [
+		270,
+		3
+	],
+	"../pages/home-deportista/home-deportista.module": [
+		271,
 		2
 	],
 	"../pages/home-entrenador/home-entrenador.module": [
-		270,
+		272,
 		1
 	],
 	"../pages/principal/principal.module": [
-		271,
+		273,
 		0
 	]
 };
@@ -102,6 +110,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */], {}, {
                     links: [
+                        { loadChildren: '../pages/crear-cuenta1/crear-cuenta1.module#CrearCuenta1PageModule', name: 'CrearCuenta1Page', segment: 'crear-cuenta1', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/crear-cuenta2/crear-cuenta2.module#CrearCuenta2PageModule', name: 'CrearCuenta2Page', segment: 'crear-cuenta2', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/home-deportista/home-deportista.module#HomeDeportistaPageModule', name: 'HomeDeportistaPage', segment: 'home-deportista', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/home-entrenador/home-entrenador.module#HomeEntrenadorPageModule', name: 'HomeEntrenadorPage', segment: 'home-entrenador', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/principal/principal.module#PrincipalPageModule', name: 'PrincipalPage', segment: 'principal', priority: 'low', defaultHistory: [] }
@@ -195,12 +205,18 @@ var HomePage = /** @class */ (function () {
     function HomePage(navCtrl) {
         this.navCtrl = navCtrl;
     }
-    HomePage.prototype.irPagSiguiente = function () {
-        this.navCtrl.push('PrincipalPage');
+    HomePage.prototype.irPagCrearCuenta = function () {
+        this.navCtrl.push('CrearCuenta1Page');
+    };
+    HomePage.prototype.irPagSiguienteEnt = function () {
+        this.navCtrl.push('HomeEntrenadorPage');
+    };
+    HomePage.prototype.irPagSiguienteDep = function () {
+        this.navCtrl.push('HomeDeportistaPage');
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"C:\Users\Geetika\Documents\GitHub\EasyFit\practica03\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      EasyFit\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n  <h1>Login</h1>\n  <hr/>\n  <br/>\n  \n  <button ion-button color="light" icon-left small (click)="irPagSiguiente()">\n  <ion-icon name=\'arrow-forward\'></ion-icon>\n  </button>\n  \n  </ion-content>\n\n\n\n'/*ion-inline-end:"C:\Users\Geetika\Documents\GitHub\EasyFit\practica03\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"C:\Users\Geetika\Documents\GitHub\EasyFit\practica03\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      EasyFit\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <h1>Login</h1>\n  <hr/>\n  <h5>Consigue una vida saludable</h5>\n  <hr/>\n\n  <div>\n    <ion-item>\n      <ion-label>Usuario</ion-label>\n    </ion-item>\n    <input type="text" id="usuario">\n\n    <ion-item>\n      <ion-label>Contraseña</ion-label>\n    </ion-item>\n    <input type="text" id="contraseña">\n  </div>\n\n  <div>\n    <button ion-button color="light" icon-left small (click)="irPagSiguienteEnt()">\n      Acceder (Entrenador)\n    </button>\n\n    <button ion-button color="light" icon-left small (click)="irPagSiguienteDep()">\n      Acceder (Deportista)\n    </button>\n    \n    <button ion-button color="light" icon-left small (click)="irPagCrearCuenta()">\n    Registrarse\n    </button>\n  </div>\n\n  \n  </ion-content>\n\n\n\n'/*ion-inline-end:"C:\Users\Geetika\Documents\GitHub\EasyFit\practica03\src\pages\home\home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]])
     ], HomePage);

@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      EasyFit
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-navbar>
+  <ion-title>Crear Cuenta</ion-title>
+</ion-navbar>
+
+<ion-content padding>
+  <button ion-button icon-only (click)="irHome()">
+    <ion-icon name="home"></ion-icon>
+  </button>
+  <button ion-button (click)="irPagAnterior()">
+    <ion-icon name='md-arrow-back'></ion-icon>
+  </button>
+
+  <h1>Crear tu cuenta</h1>
+  <h5>Consigue una vida saludable</h5>
+  <hr/>
+
+  <div>
+    <ion-item>
+      <ion-label>Nombre</ion-label>
+    </ion-item>
+    <input type="text" name="nombre">
+
+    <ion-item>
+      <ion-label>Apellidos</ion-label>
+    </ion-item>
+    <input type="text" name="apellidos">
+
+    <ion-item>
+      <ion-label>Fecha de nacimiento</ion-label>
+    </ion-item>
+    <input type="date" name="fecha-nacimiento">
+
+    <ion-item>
+      <ion-label>Genero</ion-label>
+    </ion-item>
+    <input type="radio" name="gender" value="male"> Male<br>
+    <input type="radio" name="gender" value="female"> Female<br>
+    <input type="radio" name="gender" value="other"> Other
+  </div>
+
+<button ion-button color="light" icon-left small (click)="irPagSiguiente()">
+  <ion-icon name="md-arrow-forward"></ion-icon>
+</button>  
+</ion-content>
+

@@ -6,15 +6,38 @@
   </ion-navbar>
 </ion-header>
 
-
 <ion-content padding>
   <h1>Login</h1>
   <hr/>
-  <br/>
-  
-  <button ion-button color="light" icon-left small (click)="irPagSiguiente()">
-  <ion-icon name='arrow-forward'></ion-icon>
-  </button>
+  <h5>Consigue una vida saludable</h5>
+  <hr/>
+
+  <div>
+    <ion-item>
+      <ion-label>Usuario</ion-label>
+    </ion-item>
+    <input type="text" id="usuario">
+
+    <ion-item>
+      <ion-label>Contraseña</ion-label>
+    </ion-item>
+    <input type="text" id="contraseña">
+  </div>
+
+  <div>
+    <button ion-button color="light" icon-left small (click)="irPagSiguienteEnt()">
+      Acceder (Entrenador)
+    </button>
+
+    <button ion-button color="light" icon-left small (click)="irPagSiguienteDep()">
+      Acceder (Deportista)
+    </button>
+    
+    <button ion-button color="light" icon-left small (click)="irPagCrearCuenta()">
+    Registrarse
+    </button>
+  </div>
+
   
   </ion-content>
 

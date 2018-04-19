@@ -11,9 +11,16 @@ export class HomePage {
 
   }
 
-  irPagSiguiente()
+  irPagCrearCuenta()
   {
-	  this.navCtrl.push('PrincipalPage');
+	  this.navCtrl.push('CrearCuenta1Page');
   }
 
+  irPagSiguienteEnt() {
+	  this.navCtrl.push('HomeEntrenadorPage');
+  }
+
+  irPagSiguienteDep() {
+	  this.navCtrl.push('HomeDeportistaPage');
+  }
 }
