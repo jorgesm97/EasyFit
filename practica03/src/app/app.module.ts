@@ -7,6 +7,19 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { FirebaseDbProvider } from '../providers/firebase-db/firebase-db';
+
+export const fireBaseConfig={
+  apiKey: "AIzaSyBe3_AMmiePg7_lGkTuJwAqtrDSiXV0yig",
+    authDomain: "easyfit-2018.firebaseapp.com",
+    databaseURL: "https://easyfit-2018.firebaseio.com",
+    projectId: "easyfit-2018",
+    storageBucket: "easyfit-2018.appspot.com",
+    messagingSenderId: "755473485170"
+};
+
 @NgModule({
   declarations: [
     MyApp,
@@ -14,7 +27,8 @@ import { HomePage } from '../pages/home/home';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(fireBaseConfig),AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -24,7 +38,9 @@ import { HomePage } from '../pages/home/home';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    FirebaseDbProvider,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    FirebaseDbProvider
   ]
 })
 export class AppModule {}
