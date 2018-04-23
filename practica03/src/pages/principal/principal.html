@@ -22,15 +22,32 @@
       <ion-label>¿Eres entrenador o deportista?</ion-label>
   </ion-item>
 
-  <button ion-button (click)="irPagSiguienteEnt()">
+  <button ion-button (click)="addCliente()">
     Entrenador
   </button>
   <br/>
 
-  <button ion-button (click)="irPagSiguienteDep()">
+  <button ion-button (click)="addCliente()">
       Deportista
   </button>
   <br/>
+
+  <button ion-button (click)="irPagSiguienteEnt()">
+    Acceder a tu cuenta (Entrenador)
+  </button>
+  <br/>
+
+  <button ion-button (click)="irPagSiguienteDep()">
+    Acceder a tu cuenta (Deportista)
+  </button>
+  <br/>
+
+  <h1>LISTADO DE CLIENTES:</h1>
+  <p *ngFor="let cliente of listaClientes ">
+  <button small ion-button (click)="delCliente([cliente.id])">-</button>
+  <button small ion-button (click)="updateCliente([cliente.id])">u</button>
+  {{cliente.nombre}} {{cliente.apellidos}}
+  </p>
 
 <ion-content padding>
 
