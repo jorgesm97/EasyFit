@@ -52,9 +52,9 @@ export class PrincipalPage {
     datoscliente.tipo = this.tipo;
 	  
 		this.dbFirebase.guardaCliente(datoscliente).then(res=>{
-      alert(datoscliente.nombre + " guardado en FB");
-		});
-	  
+      console.log(datoscliente.nombre + " guardado en FB");
+    });
+    this.irPagSiguiente();	  
   }
   
   addClienteDep()
@@ -64,13 +64,15 @@ export class PrincipalPage {
     
     // los datos vienen del input de usuario
     // hay que añadir genero
-    datoscliente.nombre = this.nombre; 
+    datoscliente.nombre = this.nombre;
+    datoscliente.usuario = this.usuario;
+    datoscliente.contraseña = this.contraseña;
     datoscliente.apellidos = this.apellidos;
     datoscliente.email = this.email;
     datoscliente.telefono = this.telefono;
     datoscliente.fecha_nacimiento = this.fecha_nacimiento;
     datoscliente.tipo = this.tipo;
-
+    
     // se puede ver los datos guardados en firebase console -> database por el internet
 		this.dbFirebase.guardaCliente(datoscliente).then(res=>{
       console.log(datoscliente.nombre + " guardado en FB");
