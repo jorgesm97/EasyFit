@@ -70,13 +70,12 @@ export class PrincipalPage {
     datoscliente.telefono = this.telefono;
     datoscliente.fecha_nacimiento = this.fecha_nacimiento;
     datoscliente.tipo = this.tipo;
-    
+
     // se puede ver los datos guardados en firebase console -> database por el internet
 		this.dbFirebase.guardaCliente(datoscliente).then(res=>{
-      alert(datoscliente.nombre + " guardado en FB");
+      console.log(datoscliente.nombre + " guardado en FB");
     });
-    
-    this.irPagSiguiente();	  
+    this.irPagSiguiente();	
   }
 
   irPagAnterior() {

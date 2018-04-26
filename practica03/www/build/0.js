@@ -106,11 +106,11 @@ var PrincipalPage = /** @class */ (function () {
         datoscliente.telefono = this.telefono;
         datoscliente.fecha_nacimiento = this.fecha_nacimiento;
         datoscliente.tipo = this.tipo;
+        this.irPagSiguiente();
         // se puede ver los datos guardados en firebase console -> database por el internet
         this.dbFirebase.guardaCliente(datoscliente).then(function (res) {
             alert(datoscliente.nombre + " guardado en FB");
         });
-        this.irPagSiguiente();
     };
     PrincipalPage.prototype.irPagAnterior = function () {
         this.navCtrl.pop();
@@ -151,9 +151,10 @@ var PrincipalPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-principal',template:/*ion-inline-start:"C:\Users\Geetika\Documents\GitHub\EasyFit\practica03\src\pages\principal\principal.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      EasyFit\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-navbar>\n  <ion-title>Crear Cuenta</ion-title>\n</ion-navbar>\n\n<ion-content padding>\n  <button ion-button icon-only (click)="irHome()">\n    <ion-icon name="home"></ion-icon>\n  </button>\n  <button ion-button (click)="irPagAnterior()">\n    <ion-icon name=\'md-arrow-back\'></ion-icon>\n  </button>\n\n  <ion-item>\n      <ion-label>¿Eres entrenador o deportista?</ion-label>\n  </ion-item>\n\n  <button id=\'entrenador\' ion-button (click)=\'addClienteEnt()\'>\n    Entrenador\n  </button>\n  <br/>\n\n  <button id=\'deportista\' ion-button (click)=\'addClienteDep()\'>\n    Deportista\n  </button>\n  <br/>\n\n<!-- NO ES NECESARIO el siguiente, se puede ver \n  los datos guardados en firebase console -> database por el internet -->\n<!--   <h1>LISTADO DE CLIENTES:</h1>\n  <p *ngFor="let cliente of listaClientes ">\n    <button small ion-button (click)="delCliente([cliente.id])">-</button>\n    nombre: {{cliente.nombre}} apellidos: {{cliente.apellidos}} telefono: {{cliente.telefono}} email: {{cliente.email}} fecha_nacimiento:\n    {{cliente.fecha_nacimiento}} tipo: {{cliente.tipo}}\n  </p> -->\n  \n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"C:\Users\Geetika\Documents\GitHub\EasyFit\practica03\src\pages\principal\principal.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__providers_firebase_db_firebase_db__["a" /* FirebaseDbProvider */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__providers_firebase_db_firebase_db__["a" /* FirebaseDbProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_firebase_db_firebase_db__["a" /* FirebaseDbProvider */]) === "function" && _c || Object])
     ], PrincipalPage);
     return PrincipalPage;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=principal.js.map
