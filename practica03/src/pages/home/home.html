@@ -16,28 +16,23 @@
     <ion-item>
       <ion-label>Usuario</ion-label>
     </ion-item>
-    <input type="text" id="usuario">
+    <input type="text" id="usuariologin">
 
     <ion-item>
       <ion-label>Contraseña</ion-label>
     </ion-item>
-    <input type="text" id="contraseña">
+    <input type="password" id="contraseñalogin">
   </div>
 
   <div>
-    <button ion-button color="light" icon-left small (click)="irPagSiguienteEnt()">
-      Acceder (Entrenador)
-    </button>
-
-    <button ion-button color="light" icon-left small (click)="irPagSiguienteDep()">
-      Acceder (Deportista)
+    <button ion-button color="light" icon-left small (click)="irPagSiguiente()">
+      Acceder
     </button>
     
     <button ion-button color="light" icon-left small (click)="irPagCrearCuenta()">
-    Registrarse
+      Registrarse
     </button>
   </div>
-
   
   </ion-content>
 

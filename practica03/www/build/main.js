@@ -7,6 +7,7 @@ webpackJsonp([5],{
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_firebase_db_firebase_db__ = __webpack_require__(106);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,9 +19,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var HomePage = /** @class */ (function () {
-    function HomePage(navCtrl) {
+    function HomePage(navCtrl, dbFirebase) {
         this.navCtrl = navCtrl;
+        this.dbFirebase = dbFirebase;
     }
     HomePage.prototype.irPagCrearCuenta = function () {
         this.navCtrl.push('CrearCuenta1Page');
@@ -28,87 +31,61 @@ var HomePage = /** @class */ (function () {
     HomePage.prototype.irPagSiguienteEnt = function () {
         this.navCtrl.push('HomeEntrenadorPage');
     };
-    HomePage.prototype.irPagSiguienteDep = function () {
-        this.navCtrl.push('HomeDeportistaPage');
+    HomePage.prototype.irPagSiguiente = function () {
+        var usuariologin = document.getElementById("usuariologin").value;
+        var contraseñalogin = document.getElementById("contraseñalogin").value;
+        console.log(usuariologin);
+        console.log(contraseñalogin);
+        for (var _i = 0, _a = this.listaClientesInicio; _i < _a.length; _i++) {
+            var cliente = _a[_i];
+            console.log(cliente.usuario);
+            console.log(cliente.contraseña);
+            if (cliente.usuario == usuariologin) {
+                if (cliente.contraseña == contraseñalogin) {
+                    console.log("login OK");
+                    this.tipo = cliente.tipo;
+                    console.log(this.tipo);
+                    if (this.tipo == 'entrenador') {
+                        this.navCtrl.push('HomeEntrenadorPage');
+                    }
+                    if (this.tipo == 'deportista') {
+                        this.navCtrl.push('HomeDeportistaPage');
+                    }
+                }
+            }
+            else {
+                console.log("invalid");
+            }
+        }
+    };
+    /*   irPagSiguienteDep() {
+      
+      } */
+    HomePage.prototype.ionViewDidEnter = function () {
+        var _this = this;
+        this.dbFirebase.getClientes().subscribe(function (listaClientesInicio) { _this.listaClientesInicio = listaClientesInicio; });
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"C:\Users\Geetika\Documents\GitHub\EasyFit\practica03\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      EasyFit\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <h1>Login</h1>\n  <hr/>\n  <h5>Consigue una vida saludable</h5>\n  <hr/>\n\n  <div>\n    <ion-item>\n      <ion-label>Usuario</ion-label>\n    </ion-item>\n    <input type="text" id="usuario">\n\n    <ion-item>\n      <ion-label>Contraseña</ion-label>\n    </ion-item>\n    <input type="text" id="contraseña">\n  </div>\n\n  <div>\n    <button ion-button color="light" icon-left small (click)="irPagSiguienteEnt()">\n      Acceder (Entrenador)\n    </button>\n\n    <button ion-button color="light" icon-left small (click)="irPagSiguienteDep()">\n      Acceder (Deportista)\n    </button>\n    \n    <button ion-button color="light" icon-left small (click)="irPagCrearCuenta()">\n    Registrarse\n    </button>\n  </div>\n\n  \n  </ion-content>\n\n\n\n'/*ion-inline-end:"C:\Users\Geetika\Documents\GitHub\EasyFit\practica03\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"C:\Users\Geetika\Documents\GitHub\EasyFit\practica03\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      EasyFit\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <h1>Login</h1>\n  <hr/>\n  <h5>Consigue una vida saludable</h5>\n  <hr/>\n\n  <div>\n    <ion-item>\n      <ion-label>Usuario</ion-label>\n    </ion-item>\n    <input type="text" id="usuariologin">\n\n    <ion-item>\n      <ion-label>Contraseña</ion-label>\n    </ion-item>\n    <input type="password" id="contraseñalogin">\n  </div>\n\n  <div>\n    <button ion-button color="light" icon-left small (click)="irPagSiguiente()">\n      Acceder\n    </button>\n    \n    <button ion-button color="light" icon-left small (click)="irPagCrearCuenta()">\n      Registrarse\n    </button>\n  </div>\n  \n  </ion-content>\n\n\n\n'/*ion-inline-end:"C:\Users\Geetika\Documents\GitHub\EasyFit\practica03\src\pages\home\home.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__providers_firebase_db_firebase_db__["a" /* FirebaseDbProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_firebase_db_firebase_db__["a" /* FirebaseDbProvider */]) === "function" && _b || Object])
     ], HomePage);
     return HomePage;
+    var _a, _b;
 }());
 
 //# sourceMappingURL=home.js.map
 
 /***/ }),
 
-/***/ 117:
-/***/ (function(module, exports) {
-
-function webpackEmptyAsyncContext(req) {
-	// Here Promise.resolve().then() is used instead of new Promise() to prevent
-	// uncatched exception popping up in devtools
-	return Promise.resolve().then(function() {
-		throw new Error("Cannot find module '" + req + "'.");
-	});
-}
-webpackEmptyAsyncContext.keys = function() { return []; };
-webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
-module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 117;
-
-/***/ }),
-
-/***/ 159:
-/***/ (function(module, exports, __webpack_require__) {
-
-var map = {
-	"../pages/crear-cuenta1/crear-cuenta1.module": [
-		333,
-		4
-	],
-	"../pages/crear-cuenta2/crear-cuenta2.module": [
-		334,
-		3
-	],
-	"../pages/home-deportista/home-deportista.module": [
-		335,
-		2
-	],
-	"../pages/home-entrenador/home-entrenador.module": [
-		336,
-		1
-	],
-	"../pages/principal/principal.module": [
-		337,
-		0
-	]
-};
-function webpackAsyncContext(req) {
-	var ids = map[req];
-	if(!ids)
-		return Promise.reject(new Error("Cannot find module '" + req + "'."));
-	return __webpack_require__.e(ids[1]).then(function() {
-		return __webpack_require__(ids[0]);
-	});
-};
-webpackAsyncContext.keys = function webpackAsyncContextKeys() {
-	return Object.keys(map);
-};
-webpackAsyncContext.id = 159;
-module.exports = webpackAsyncContext;
-
-/***/ }),
-
-/***/ 220:
+/***/ 106:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FirebaseDbProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__ = __webpack_require__(161);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -150,6 +127,64 @@ var FirebaseDbProvider = /** @class */ (function () {
 
 /***/ }),
 
+/***/ 118:
+/***/ (function(module, exports) {
+
+function webpackEmptyAsyncContext(req) {
+	// Here Promise.resolve().then() is used instead of new Promise() to prevent
+	// uncatched exception popping up in devtools
+	return Promise.resolve().then(function() {
+		throw new Error("Cannot find module '" + req + "'.");
+	});
+}
+webpackEmptyAsyncContext.keys = function() { return []; };
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+module.exports = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = 118;
+
+/***/ }),
+
+/***/ 160:
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"../pages/crear-cuenta1/crear-cuenta1.module": [
+		333,
+		4
+	],
+	"../pages/crear-cuenta2/crear-cuenta2.module": [
+		334,
+		3
+	],
+	"../pages/home-deportista/home-deportista.module": [
+		335,
+		2
+	],
+	"../pages/home-entrenador/home-entrenador.module": [
+		336,
+		1
+	],
+	"../pages/principal/principal.module": [
+		337,
+		0
+	]
+};
+function webpackAsyncContext(req) {
+	var ids = map[req];
+	if(!ids)
+		return Promise.reject(new Error("Cannot find module '" + req + "'."));
+	return __webpack_require__.e(ids[1]).then(function() {
+		return __webpack_require__(ids[0]);
+	});
+};
+webpackAsyncContext.keys = function webpackAsyncContextKeys() {
+	return Object.keys(map);
+};
+webpackAsyncContext.id = 160;
+module.exports = webpackAsyncContext;
+
+/***/ }),
+
 /***/ 221:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -173,13 +208,13 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(216);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(219);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(217);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(220);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(332);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(105);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angularfire2__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_angularfire2_database__ = __webpack_require__(160);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_firebase_db_firebase_db__ = __webpack_require__(220);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_angularfire2_database__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_firebase_db_firebase_db__ = __webpack_require__(106);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -254,8 +289,8 @@ var AppModule = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(219);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(216);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(220);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(217);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(105);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;

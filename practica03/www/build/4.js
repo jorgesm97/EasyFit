@@ -66,8 +66,16 @@ var CrearCuenta1Page = /** @class */ (function () {
     CrearCuenta1Page.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad CrearCuenta1Page');
     };
+    // manda datos del input usuario a la siguente pagina
     CrearCuenta1Page.prototype.irPagSiguiente = function () {
-        this.navCtrl.push('CrearCuenta2Page');
+        var usuario = document.getElementById("usuario").value;
+        var contraseña = document.getElementById("contraseña").value;
+        var telefono = document.getElementById("telefono").value;
+        var email = document.getElementById("email").value;
+        console.log("sending " + usuario);
+        console.log("sending " + email);
+        this.navCtrl.push('CrearCuenta2Page', { usuario: usuario, contraseña: contraseña,
+            telefono: telefono, email: email });
     };
     CrearCuenta1Page.prototype.irHome = function () {
         this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_2__home_home__["a" /* HomePage */]);
@@ -77,7 +85,7 @@ var CrearCuenta1Page = /** @class */ (function () {
     };
     CrearCuenta1Page = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-crear-cuenta1',template:/*ion-inline-start:"C:\Users\Geetika\Documents\GitHub\EasyFit\practica03\src\pages\crear-cuenta1\crear-cuenta1.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      EasyFit\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-navbar>\n  <ion-title>Crear Cuenta</ion-title>\n</ion-navbar>\n\n<ion-content padding>\n  <button ion-button icon-only (click)="irHome()">\n    <ion-icon name="home"></ion-icon>\n  </button>\n  <button ion-button (click)="irPagAnterior()">\n    <ion-icon name=\'md-arrow-back\'></ion-icon>\n  </button>\n\n  <h1>Crear tu cuenta</h1>\n  <h5>Consigue una vida saludable</h5>\n  <hr/>\n  \n  <div>\n    <ion-item>\n      <ion-label>Usuario</ion-label>\n    </ion-item>\n    <input type="text" name="usuario">\n\n    <ion-item>\n      <ion-label>Contraseña</ion-label>\n    </ion-item>\n    <input type="password" name="contraseña">\n\n    <ion-item>\n      <ion-label>Telefono</ion-label>\n    </ion-item>\n    <input type="number" name="telefono">\n\n    <ion-item>\n      <ion-label>Email</ion-label>\n    </ion-item>\n    <input type="email" name="email">\n  </div>\n\n<button ion-button color="light" icon-left small (click)="irPagSiguiente()">\n  <ion-icon name="md-arrow-forward"></ion-icon>\n</button>\n  \n</ion-content>'/*ion-inline-end:"C:\Users\Geetika\Documents\GitHub\EasyFit\practica03\src\pages\crear-cuenta1\crear-cuenta1.html"*/,
+            selector: 'page-crear-cuenta1',template:/*ion-inline-start:"C:\Users\Geetika\Documents\GitHub\EasyFit\practica03\src\pages\crear-cuenta1\crear-cuenta1.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      EasyFit\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-navbar>\n  <ion-title>Crear Cuenta</ion-title>\n</ion-navbar>\n\n<ion-content padding>\n  <button ion-button icon-only (click)="irHome()">\n    <ion-icon name="home"></ion-icon>\n  </button>\n  <button ion-button (click)="irPagAnterior()">\n    <ion-icon name=\'md-arrow-back\'></ion-icon>\n  </button>\n\n  <h1>Crear tu cuenta</h1>\n  <h5>Consigue una vida saludable</h5>\n  <hr/>\n  \n  <div>\n    <ion-item>\n      <ion-label>Usuario</ion-label>\n    </ion-item>\n    <input type="text" id="usuario">\n\n    <ion-item>\n      <ion-label>Contraseña</ion-label>\n    </ion-item>\n    <input type="password" id="contraseña">\n\n    <ion-item>\n      <ion-label>Telefono</ion-label>\n    </ion-item>\n    <input type="number" id="telefono">\n\n    <ion-item>\n      <ion-label>Email</ion-label>\n    </ion-item>\n    <input type="email" id="email">\n  </div>\n\n<button ion-button color="light" icon-left small (click)="irPagSiguiente()">\n  <ion-icon name="md-arrow-forward"></ion-icon>\n</button>\n  \n</ion-content>'/*ion-inline-end:"C:\Users\Geetika\Documents\GitHub\EasyFit\practica03\src\pages\crear-cuenta1\crear-cuenta1.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]])
     ], CrearCuenta1Page);

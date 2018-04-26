@@ -68,12 +68,25 @@ var CrearCuenta2Page = /** @class */ (function () {
     function CrearCuenta2Page(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.usuario = navParams.get("usuario");
+        this.contraseña = navParams.get("contraseña");
+        this.telefono = navParams.get("telefono");
+        this.email = navParams.get("email");
+        console.log("second page " + this.usuario);
     }
     CrearCuenta2Page.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad CrearCuenta2Page');
     };
+    // manda datos del input usuario a la siguente pagina
     CrearCuenta2Page.prototype.irPagSiguiente = function () {
-        this.navCtrl.push('PrincipalPage');
+        var nombre = document.getElementById("nombre").value;
+        var apellidos = document.getElementById("apellidos").value;
+        var fecha_nacimiento = document.getElementById("fecha_nacimiento").value;
+        console.log("sending 2 " + this.usuario);
+        console.log("sending 2 " + this.nombre);
+        this.navCtrl.push('PrincipalPage', { usuario: this.usuario, contraseña: this.contraseña,
+            telefono: this.telefono, email: this.email, nombre: nombre,
+            apellidos: apellidos, fecha_nacimiento: fecha_nacimiento });
     };
     CrearCuenta2Page.prototype.irHome = function () {
         this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_2__home_home__["a" /* HomePage */]);
@@ -83,7 +96,7 @@ var CrearCuenta2Page = /** @class */ (function () {
     };
     CrearCuenta2Page = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-crear-cuenta2',template:/*ion-inline-start:"C:\Users\Geetika\Documents\GitHub\EasyFit\practica03\src\pages\crear-cuenta2\crear-cuenta2.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      EasyFit\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-navbar>\n  <ion-title>Crear Cuenta</ion-title>\n</ion-navbar>\n\n<ion-content padding>\n  <button ion-button icon-only (click)="irHome()">\n    <ion-icon name="home"></ion-icon>\n  </button>\n  <button ion-button (click)="irPagAnterior()">\n    <ion-icon name=\'md-arrow-back\'></ion-icon>\n  </button>\n\n  <h1>Crear tu cuenta</h1>\n  <h5>Consigue una vida saludable</h5>\n  <hr/>\n\n  <div>\n    <ion-item>\n      <ion-label>Nombre</ion-label>\n    </ion-item>\n    <input type="text" name="nombre">\n\n    <ion-item>\n      <ion-label>Apellidos</ion-label>\n    </ion-item>\n    <input type="text" name="apellidos">\n\n    <ion-item>\n      <ion-label>Fecha de nacimiento</ion-label>\n    </ion-item>\n    <input type="date" name="fecha_nacimiento">\n\n    <ion-item>\n      <ion-label>Genero</ion-label>\n    </ion-item>\n    <input type="radio" name="genero" value="hombre">Hombre<br>\n    <input type="radio" name="genero" value="mujer">Mujer<br>\n    <input type="radio" name="genero" value="otro">Otro\n  </div>\n\n<button ion-button color="light" icon-left small (click)="irPagSiguiente()">\n  <ion-icon name="md-arrow-forward"></ion-icon>\n</button>  \n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Geetika\Documents\GitHub\EasyFit\practica03\src\pages\crear-cuenta2\crear-cuenta2.html"*/,
+            selector: 'page-crear-cuenta2',template:/*ion-inline-start:"C:\Users\Geetika\Documents\GitHub\EasyFit\practica03\src\pages\crear-cuenta2\crear-cuenta2.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      EasyFit\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-navbar>\n  <ion-title>Crear Cuenta</ion-title>\n</ion-navbar>\n\n<ion-content padding>\n  <button ion-button icon-only (click)="irHome()">\n    <ion-icon name="home"></ion-icon>\n  </button>\n  <button ion-button (click)="irPagAnterior()">\n    <ion-icon name=\'md-arrow-back\'></ion-icon>\n  </button>\n\n  <h1>Crear tu cuenta</h1>\n  <h5>Consigue una vida saludable</h5>\n  <hr/>\n\n  <div>\n    <ion-item>\n      <ion-label>Nombre</ion-label>\n    </ion-item>\n    <input type="text" id="nombre">\n\n    <ion-item>\n      <ion-label>Apellidos</ion-label>\n    </ion-item>\n    <input type="text" id="apellidos">\n\n    <ion-item>\n      <ion-label>Fecha de nacimiento</ion-label>\n    </ion-item>\n    <input type="date" id="fecha_nacimiento">\n\n    <ion-item>\n      <ion-label>Genero</ion-label>\n    </ion-item>\n    <input type="radio" name="genero" value="hombre">Hombre<br>\n    <input type="radio" name="genero" value="mujer">Mujer<br>\n    <input type="radio" name="genero" value="otro">Otro\n  </div>\n\n<button ion-button color="light" icon-left small (click)="irPagSiguiente()">\n  <ion-icon name="md-arrow-forward"></ion-icon>\n</button>  \n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Geetika\Documents\GitHub\EasyFit\practica03\src\pages\crear-cuenta2\crear-cuenta2.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]])
     ], CrearCuenta2Page);
