@@ -7,47 +7,54 @@
 </ion-header>
 
 <ion-navbar>
-  <ion-title>Crear Cuenta</ion-title>
+  <ion-title>Crea tu cuenta</ion-title>
 </ion-navbar>
 
 <ion-content padding>
-  <button ion-button icon-only (click)="irHome()">
-    <ion-icon name="home"></ion-icon>
-  </button>
-  <button ion-button (click)="irPagAnterior()">
-    <ion-icon name='md-arrow-back'></ion-icon>
-  </button>
 
-  <h1>Crear tu cuenta</h1>
+
+  <h1>Crea tu cuenta</h1>
   <h5>Consigue una vida saludable</h5>
   <hr/>
 
   <div>
     <ion-item>
       <ion-label>Nombre</ion-label>
+      <ion-input type="text" [(ngModel)]="nombre"></ion-input>
     </ion-item>
-    <input type="text" id="nombre">
 
     <ion-item>
       <ion-label>Apellidos</ion-label>
+      <ion-input type="text" [(ngModel)]="apellidos"></ion-input>
     </ion-item>
-    <input type="text" id="apellidos">
 
     <ion-item>
       <ion-label>Fecha de nacimiento</ion-label>
+      <ion-input type="date" [(ngModel)]="fecha_nacimiento"></ion-input>
     </ion-item>
-    <input type="date" id="fecha_nacimiento">
-
     <ion-item>
-      <ion-label>Genero</ion-label>
+      <ion-label>Género</ion-label>
+      <ion-select [(ngModel)]="gender">
+        <ion-option value="mujer">Mujer</ion-option>
+        <ion-option value="hombre">Hombre</ion-option>
+        <ion-option value="otro">Otro</ion-option>
+      </ion-select>
     </ion-item>
-    <input type="radio" name="genero" value="hombre">Hombre<br>
-    <input type="radio" name="genero" value="mujer">Mujer<br>
-    <input type="radio" name="genero" value="otro">Otro
+
   </div>
 
-<button ion-button color="light" icon-left small (click)="irPagSiguiente()">
-  <ion-icon name="md-arrow-forward"></ion-icon>
-</button>  
-</ion-content>
+  <ion-row>
+  <button ion-button class="nav-btn" (click)="irPagAnterior()">
+    <ion-icon name='md-arrow-back'></ion-icon>
+    Anterior
+  </button>
+  <button ion-button class="nav-btn" color="dark" icon-only (click)="irHome()">
+    <ion-icon name="home"></ion-icon>
+  </button>
 
+  <button ion-button class="nav-btn" (click)="irPagSiguiente()">
+  Siguiente
+  <ion-icon name="md-arrow-forward"></ion-icon>
+</button>
+</ion-row>
+</ion-content>

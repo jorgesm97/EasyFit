@@ -8,7 +8,10 @@ import { HomePage } from '../home/home';
   templateUrl: 'crear-cuenta1.html',
 })
 export class CrearCuenta1Page {
-
+  usuario;
+  password;
+  telefono;
+  email;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -18,13 +21,14 @@ export class CrearCuenta1Page {
 
   // manda datos del input usuario a la siguente pagina
   irPagSiguiente() {
-    let usuario = (<HTMLInputElement>document.getElementById("usuario")).value;
-    let contraseña = (<HTMLInputElement>document.getElementById("contraseña")).value;
-    let telefono = (<HTMLInputElement>document.getElementById("telefono")).value;
-    let email = (<HTMLInputElement>document.getElementById("email")).value;
+    let usuario = this.usuario;
     console.log("sending " + usuario);
+    let password = this.password;
+    console.log("sending" + password);
+    let telefono = this.telefono;
+    let email = this.email;
     console.log("sending " + email);
-    this.navCtrl.push('CrearCuenta2Page',{usuario: usuario, contraseña: contraseña,
+    this.navCtrl.push('CrearCuenta2Page',{usuario: usuario, password: password,
       telefono: telefono, email: email});
   }
 

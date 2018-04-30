@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content padding>
-  <h1>Login</h1>
+  <h1>¡Bienvenido!</h1>
   <hr/>
   <h5>Consigue una vida saludable</h5>
   <hr/>
@@ -15,26 +15,23 @@
   <div>
     <ion-item>
       <ion-label>Usuario</ion-label>
+        <ion-input type="text" [(ngModel)]="usuarioLogin"></ion-input>
     </ion-item>
-    <input type="text" id="usuariologin">
 
     <ion-item>
       <ion-label>Contraseña</ion-label>
+      <ion-input type="password" [(ngModel)]="passwordLogin"></ion-input>
     </ion-item>
-    <input type="password" id="contraseñalogin">
-  </div>
-
-  <div>
-    <button ion-button color="light" icon-left small (click)="irPagSiguiente()">
+      </div>
+<br/><br/>
+  <div text-center>
+    <button ion-button class="nav-btn"color="secondary" icon-left small (click)="irPagSiguiente()">
       Acceder
     </button>
-    
-    <button ion-button color="light" icon-left small (click)="irPagCrearCuenta()">
+    <br/>
+    <button ion-button class="nav-btn" icon-left small (click)="irPagCrearCuenta()">
       Registrarse
     </button>
   </div>
-  
+
   </ion-content>
-
-
-

@@ -15,16 +15,18 @@ import { HomePage } from '../home/home';
 })
 export class CrearCuenta2Page {
   public usuario;
-  public contraseña;
+  public password;
   public telefono;
   public email;
-  public nombre;
-  public apellidos;
-  public fecha_nacimiento;
+   nombre;
+   apellidos;
+   fecha_nacimiento;
+   gender;
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.usuario = navParams.get("usuario");
-    this.contraseña = navParams.get("contraseña");
+    this.password = navParams.get("password");
     this.telefono = navParams.get("telefono");
     this.email = navParams.get("email");
     console.log("second page " + this.usuario);
@@ -36,14 +38,14 @@ export class CrearCuenta2Page {
 
   // manda datos del input usuario a la siguente pagina
   irPagSiguiente() {
-    let nombre = (<HTMLInputElement>document.getElementById("nombre")).value;
-    let apellidos = (<HTMLInputElement>document.getElementById("apellidos")).value;
-    let fecha_nacimiento = (<HTMLInputElement>document.getElementById("fecha_nacimiento")).value;
+    let nombre = this.nombre;
+    let apellidos = this.apellidos;
+    let fecha_nacimiento = this.fecha_nacimiento;
+    let gender = this.gender;
     console.log("sending 2 " + this.usuario);
-    console.log("sending 2 " + this.nombre);
-    this.navCtrl.push('PrincipalPage',{usuario: this.usuario, contraseña: this.contraseña,
+    this.navCtrl.push('PrincipalPage',{usuario: this.usuario, password: this.password,
       telefono: this.telefono, email: this.email, nombre: nombre,
-      apellidos: apellidos, fecha_nacimiento: fecha_nacimiento});
+      apellidos: apellidos, fecha_nacimiento: fecha_nacimiento, genero: gender});
   }
 
   irHome() {

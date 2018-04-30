@@ -11,41 +11,47 @@
 </ion-navbar>
 
 <ion-content padding>
-  <button ion-button icon-only (click)="irHome()">
-    <ion-icon name="home"></ion-icon>
-  </button>
-  <button ion-button (click)="irPagAnterior()">
-    <ion-icon name='md-arrow-back'></ion-icon>
-  </button>
 
-  <h1>Crear tu cuenta</h1>
+
+  <h1>Crea tu cuenta</h1>
   <h5>Consigue una vida saludable</h5>
   <hr/>
-  
+
   <div>
     <ion-item>
-      <ion-label>Usuario</ion-label>
+      <ion-label fixed>Usuario</ion-label>
+      <ion-input type="text"  [(ngModel)]="usuario" ></ion-input>
     </ion-item>
-    <input type="text" id="usuario">
 
     <ion-item>
-      <ion-label>Contraseña</ion-label>
+      <ion-label fixed>Contraseña</ion-label>
+      <ion-input type="password"  [(ngModel)]="password"></ion-input>
     </ion-item>
-    <input type="password" id="contraseña">
 
     <ion-item>
-      <ion-label>Telefono</ion-label>
+      <ion-label fixed>Teléfono</ion-label>
+      <ion-input type="number"  [(ngModel)]="telefono" ></ion-input>
     </ion-item>
-    <input type="number" id="telefono">
 
     <ion-item>
-      <ion-label>Email</ion-label>
+      <ion-label fixed>Email</ion-label>
+      <ion-input type="email"  [(ngModel)]="email"></ion-input>
     </ion-item>
-    <input type="email" id="email">
   </div>
+  <br/>
+  <ion-row>
+  <button ion-button class="nav-btn" (click)="irPagAnterior()">
+    <ion-icon name='md-arrow-back'></ion-icon>
+    Anterior
+  </button>
 
-<button ion-button color="light" icon-left small (click)="irPagSiguiente()">
+  <button ion-button class="nav-btn" icon-only color="dark" (click)="irHome()">
+    <ion-icon name="home"></ion-icon>
+  </button>
+
+  <button ion-button class="nav-btn" block-clear (click)="irPagSiguiente()">
+    Siguiente
   <ion-icon name="md-arrow-forward"></ion-icon>
 </button>
-  
+</ion-row>
 </ion-content>

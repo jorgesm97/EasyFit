@@ -2,13 +2,15 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FirebaseDbProvider } from '../../providers/firebase-db/firebase-db';
 import { Cliente } from '../../models/cliente.model';
+import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-
+  usuarioLogin;
+  passwordLogin;
   listaClientesInicio:any;
   public tipo;
   constructor(public navCtrl: NavController, public dbFirebase:FirebaseDbProvider) {
@@ -25,15 +27,15 @@ export class HomePage {
   }
 
   irPagSiguiente() {
-    let usuariologin = (<HTMLInputElement>document.getElementById("usuariologin")).value;
-    let contraseñalogin = (<HTMLInputElement>document.getElementById("contraseñalogin")).value;
-    console.log(usuariologin);
-    console.log(contraseñalogin);
+    let usuariologin = this.usuarioLogin;
+    let passwordlogin = this.passwordLogin;
+    console.log("A BUSCAR! "+ usuariologin);
+    console.log("password "+passwordlogin);
     for (let cliente of this.listaClientesInicio) {
-      console.log(cliente.usuario);
-      console.log(cliente.contraseña);
+      console.log("Cliente:"+cliente.usuario);
+      console.log(cliente.password);
       if (cliente.usuario == usuariologin) {
-        if (cliente.contraseña == contraseñalogin) {
+        if (cliente.password == passwordlogin) {
           console.log("login OK");
           this.tipo = cliente.tipo;
           console.log(this.tipo);
@@ -42,7 +44,7 @@ export class HomePage {
           }
           if (this.tipo == 'deportista') {
             this.navCtrl.push('HomeDeportistaPage');
-          }	
+          }
         }
       }
       else {
@@ -52,12 +54,12 @@ export class HomePage {
   }
 
 /*   irPagSiguienteDep() {
-  
+
   } */
 
   ionViewDidEnter()
   {
 	  this.dbFirebase.getClientes().subscribe(listaClientesInicio=>{this.listaClientesInicio=listaClientesInicio;});
   }
-   
+
 }

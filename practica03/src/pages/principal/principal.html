@@ -11,36 +11,34 @@
 </ion-navbar>
 
 <ion-content padding>
-  <button ion-button icon-only (click)="irHome()">
-    <ion-icon name="home"></ion-icon>
-  </button>
-  <button ion-button (click)="irPagAnterior()">
-    <ion-icon name='md-arrow-back'></ion-icon>
-  </button>
 
-  <ion-item>
-      <ion-label>¿Eres entrenador o deportista?</ion-label>
+  <ion-item text-center>
+      <ion-label class="my-label">¿Eres entrenador o deportista?</ion-label>
   </ion-item>
 
-  <button id='entrenador' ion-button (click)='addClienteEnt()'>
+<div text-center>
+  <button id='entrenador' ion-button large class="elegir-btn" color="secondary" (click)='addClienteEnt()'>
     Entrenador
   </button>
   <br/>
 
-  <button id='deportista' ion-button (click)='addClienteDep()'>
+  <button id='deportista' ion-button large class="elegir-btn" color="secondary" (click)='addClienteDep()'>
     Deportista
   </button>
+  <br/><br/>
+  <br/>
   <br/>
 
-<!-- NO ES NECESARIO el siguiente, se puede ver 
-  los datos guardados en firebase console -> database por el internet -->
-<!--   <h1>LISTADO DE CLIENTES:</h1>
-  <p *ngFor="let cliente of listaClientes ">
-    <button small ion-button (click)="delCliente([cliente.id])">-</button>
-    nombre: {{cliente.nombre}} apellidos: {{cliente.apellidos}} telefono: {{cliente.telefono}} email: {{cliente.email}} fecha_nacimiento:
-    {{cliente.fecha_nacimiento}} tipo: {{cliente.tipo}}
-  </p> -->
-  
-<ion-content padding>
+
+</div>
+  <ion-content padding>
+    <button ion-button class="nav-btn" (click)="irPagAnterior()">
+      <ion-icon name='md-arrow-back'></ion-icon>
+      Anterior
+    </button>
+  <button ion-button class="nav-btn" icon-only color="dark" (click)="irHome()">
+    <ion-icon name="home"></ion-icon>
+  </button>
+
 
 </ion-content>
