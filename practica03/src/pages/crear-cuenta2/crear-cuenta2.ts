@@ -43,9 +43,12 @@ export class CrearCuenta2Page {
     let fecha_nacimiento = this.fecha_nacimiento;
     let gender = this.gender;
     //console.log("sending 2 " + this.usuario);
-    this.navCtrl.push('PrincipalPage',{usuario: this.usuario, password: this.password,
-      telefono: this.telefono, email: this.email, nombre: nombre,
-      apellidos: apellidos, fecha_nacimiento: fecha_nacimiento, genero: gender});
+	if(nombre==null || apellidos==null || fecha_nacimiento==null || gender==null) alert("Por favor, complete los campos antes de continuar.");
+	else{
+		this.navCtrl.push('PrincipalPage',{usuario: this.usuario, password: this.password,
+		  telefono: this.telefono, email: this.email, nombre: nombre,
+		  apellidos: apellidos, fecha_nacimiento: fecha_nacimiento, genero: gender});
+	}
   }
 
   irHome() {

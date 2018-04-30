@@ -28,8 +28,10 @@ export class CrearCuenta1Page {
     let telefono = this.telefono;
     let email = this.email;
     //console.log("sending " + email);
+	if(usuario==null || password==null || telefono==null || email==null) alert("Por favor, complete los campos antes de continuar");
+	else{
     this.navCtrl.push('CrearCuenta2Page',{usuario: usuario, password: password,
-      telefono: telefono, email: email});
+  telefono: telefono, email: email});}
   }
 
   irHome() {
