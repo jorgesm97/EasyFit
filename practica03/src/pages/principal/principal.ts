@@ -21,6 +21,7 @@ export class PrincipalPage {
   public fecha_nacimiento;
   public tipo;
   public genero;
+  datoscliente;
   listaClientes:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public dbFirebase:FirebaseDbProvider) {
@@ -32,19 +33,18 @@ export class PrincipalPage {
     this.apellidos = navParams.get("apellidos");
     this.fecha_nacimiento = navParams.get("fecha_nacimiento");
     this.genero = navParams.get("genero");
-    console.log(this.usuario);
-    console.log(this.nombre);
+    //console.log(this.usuario);
+    //console.log(this.nombre);
   }
 
   // Estas funciones van a agregar usuarios usando el input
   addClienteEnt()
   {
-    console.log(this.usuario + this.nombre + this.apellidos + this.password + this.email + this.telefono + this.genero+ this.fecha_nacimiento);
+    //console.log(this.usuario + this.nombre + this.apellidos + this.password + this.email + this.telefono + this.genero+ this.fecha_nacimiento);
     this.tipo = "entrenador";
 		let datoscliente:Cliente=new Cliente();
 
-    // los datos vienen del input de usuario
-    // hay que añadir genero
+    //Datos vienen del input de usuario
     datoscliente.nombre = this.nombre;
     datoscliente.usuario = this.usuario;
     datoscliente.password = this.password;
@@ -56,7 +56,7 @@ export class PrincipalPage {
     datoscliente.genero= this.genero;
 
 		this.dbFirebase.guardaCliente(datoscliente).then(res=>{
-      console.log(datoscliente.nombre + " guardado en FB");
+      //console.log(datoscliente.nombre + " guardado en FB");
     });
     this.irPagSiguiente();
   }
@@ -90,13 +90,13 @@ export class PrincipalPage {
 
   irPagSiguiente() {
     if (this.tipo == 'entrenador') {
-      this.navCtrl.push('HomeEntrenadorPage');
+      this.navCtrl.push('HomeEntrenadorPage',this.datoscliente);
     }
     if (this.tipo == 'deportista') {
-      this.navCtrl.push('HomeDeportistaPage');
+      this.navCtrl.push('HomeDeportistaPage',this.datoscliente);
     }
-    else {
-      console.log('tipo del usuario no definida');
+    else { //Crear alerta
+      //console.log('tipo del usuario no definida');
     }
   }
 

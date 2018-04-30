@@ -15,8 +15,9 @@ import { HomePage } from '../home/home';
   templateUrl: 'home-deportista.html',
 })
 export class HomeDeportistaPage {
-
+  cliente:any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    let cliente = navParams.data;
   }
 
   ionViewDidLoad() {
@@ -26,7 +27,9 @@ export class HomeDeportistaPage {
   irHome() {
     this.navCtrl.setRoot(HomePage);
   }
-
+  irEntrenamiento(){
+    this.navCtrl.push('miEntrenamiento', this.cliente);
+  }
   irPagAnterior() {
 	  this.navCtrl.pop();
   }

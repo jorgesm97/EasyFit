@@ -1,0 +1,17 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>listaDeportistasEntrenamiento</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <tr *ngFor='let id of getDeportistas(); let i=index'>
+  	<td>{{clientes[id].nombre | uppercase}}</td>
+    <button type='button'>Añadir</button>
+  </tr>
+</ion-content>

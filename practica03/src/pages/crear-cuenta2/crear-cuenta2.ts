@@ -29,7 +29,7 @@ export class CrearCuenta2Page {
     this.password = navParams.get("password");
     this.telefono = navParams.get("telefono");
     this.email = navParams.get("email");
-    console.log("second page " + this.usuario);
+    //console.log("second page " + this.usuario);
   }
 
   ionViewDidLoad() {
@@ -42,7 +42,7 @@ export class CrearCuenta2Page {
     let apellidos = this.apellidos;
     let fecha_nacimiento = this.fecha_nacimiento;
     let gender = this.gender;
-    console.log("sending 2 " + this.usuario);
+    //console.log("sending 2 " + this.usuario);
     this.navCtrl.push('PrincipalPage',{usuario: this.usuario, password: this.password,
       telefono: this.telefono, email: this.email, nombre: nombre,
       apellidos: apellidos, fecha_nacimiento: fecha_nacimiento, genero: gender});

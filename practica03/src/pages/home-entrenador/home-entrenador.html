@@ -1,12 +1,41 @@
 <ion-content padding>
-  <h1>Bienvenido, Entrenador!</h1>
+  <h1>Bienvenido,{{nombre}} </h1>
   <hr/>
 
-  <button ion-button icon-only (click)="irHome()">
-    <ion-icon name="home"></ion-icon>
-  </button>
-  <button ion-button (click)="irPagAnterior()">
-    <ion-icon name='md-arrow-back'></ion-icon>
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <button ion-button class="nav-btn"large color="light" (click)="irEntrenamientos()">
+        <ion-icon  name="people"></ion-icon>
+      </button><br/>
+      Entrenamientos
+    </ion-col>
+    <ion-col>
+      <button ion-button class="nav-btn" large color="light">
+        <ion-icon  name="chatbubbles"></ion-icon>
+      </button><br/>
+      Chat
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <button ion-button class="nav-btn" large color="light">
+        <ion-icon name="stats"></ion-icon>
+      </button><br/>
+      Stats
+    </ion-col>
+    <ion-col>
+      <button ion-button class="nav-btn" large color="light">
+        <ion-icon  name="settings"></ion-icon>
+      </button><br/>
+      Ajustes
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+  <button ion-button small color="light"(click)="irPagAnterior()">
+    Log out
   </button>
 
 <ion-content padding>

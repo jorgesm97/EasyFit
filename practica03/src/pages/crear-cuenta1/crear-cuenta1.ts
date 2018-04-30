@@ -15,19 +15,19 @@ export class CrearCuenta1Page {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
+  /*ionViewDidLoad() {
     console.log('ionViewDidLoad CrearCuenta1Page');
-  }
+  }*/
 
   // manda datos del input usuario a la siguente pagina
   irPagSiguiente() {
     let usuario = this.usuario;
-    console.log("sending " + usuario);
+    //console.log("sending " + usuario);
     let password = this.password;
-    console.log("sending" + password);
+    //console.log("sending" + password);
     let telefono = this.telefono;
     let email = this.email;
-    console.log("sending " + email);
+    //console.log("sending " + email);
     this.navCtrl.push('CrearCuenta2Page',{usuario: usuario, password: password,
       telefono: telefono, email: email});
   }
