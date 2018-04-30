@@ -23,7 +23,7 @@ export class HomePage {
   }
 
   irPagSiguienteEnt() {
-	  this.navCtrl.push('HomeEntrenadorPage', cliente);
+	  this.navCtrl.push('HomeEntrenadorPage', Cliente);
   }
 
   irPagSiguiente() {
