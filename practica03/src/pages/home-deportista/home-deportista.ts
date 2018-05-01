@@ -16,8 +16,9 @@ import { HomePage } from '../home/home';
 })
 export class HomeDeportistaPage {
   cliente:any;
+  nombre;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    let cliente = navParams.data;
+    this.cliente = navParams.data;
   }
 
   ionViewDidLoad() {

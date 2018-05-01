@@ -22,10 +22,6 @@ export class HomePage {
 	  this.navCtrl.push('CrearCuenta1Page');
   }
 
-  irPagSiguienteEnt() {
-	  this.navCtrl.push('HomeEntrenadorPage', Cliente);
-  }
-
   irPagSiguiente() {
     let usuariologin = this.usuarioLogin;
     let passwordlogin = this.passwordLogin;
@@ -51,10 +47,6 @@ export class HomePage {
         console.log("invalid");
     }
 
-
-/*   irPagSiguienteDep() {
-
-  } */
 
   ionViewDidEnter()
   {

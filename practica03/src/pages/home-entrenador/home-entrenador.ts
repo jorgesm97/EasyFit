@@ -18,8 +18,6 @@ export class HomeEntrenadorPage {
   cliente:any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.cliente = navParams.data;
-    console.log(this.cliente.nombre);
-    let nombre = this.cliente.nombre;
   }
 
   ionViewDidLoad() {
