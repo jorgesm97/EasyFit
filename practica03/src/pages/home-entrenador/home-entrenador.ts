@@ -16,8 +16,10 @@ import { HomePage } from '../home/home';
 })
 export class HomeEntrenadorPage {
   cliente:any;
+  listaClientes:any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.cliente = navParams.data;
+    this.cliente = navParams.get("cliente");
+    this.listaClientes = navParams.get("lista");
   }
 
   ionViewDidLoad() {
@@ -28,7 +30,7 @@ export class HomeEntrenadorPage {
     this.navCtrl.setRoot(HomePage);
   }
   irEntrenamientos(){
-    this.navCtrl.push('ListaDeportistasEntrenamientoPage');
+    this.navCtrl.push('ListaDeportistasEntrenamientoPage', {cliente: this.cliente, lista:this.listaClientes});
   }
 
   irPagAnterior() {

@@ -38,7 +38,7 @@ export class HomePage {
           this.tipo = cliente.tipo;
       //    console.log(this.tipo);
           if (this.tipo == 'entrenador') {
-            this.navCtrl.push('HomeEntrenadorPage', cliente, this.listaClientesInicio);
+            this.navCtrl.push('HomeEntrenadorPage', {cliente: cliente, lista: this.listaClientesInicio});
             this.match=true;
 
           }
