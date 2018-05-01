@@ -13,6 +13,7 @@ export class HomePage {
   passwordLogin;
   listaClientesInicio:any;
   public tipo;
+  match: boolean;
   constructor(public navCtrl: NavController, public dbFirebase:FirebaseDbProvider,  public alertCtrl:AlertController) {
 
   }
@@ -23,6 +24,7 @@ export class HomePage {
   }
 
   irPagSiguiente() {
+    this.match = false;
     let usuariologin = this.usuarioLogin;
     let passwordlogin = this.passwordLogin;
   //  console.log("A BUSCAR! "+ usuariologin);
@@ -37,19 +39,24 @@ export class HomePage {
       //    console.log(this.tipo);
           if (this.tipo == 'entrenador') {
             this.navCtrl.push('HomeEntrenadorPage', cliente, this.listaClientesInicio);
+            this.match=true;
+
           }
           if (this.tipo == 'deportista') {
             this.navCtrl.push('HomeDeportistaPage', cliente);
+            this.match =true;
           }
         }
       }
       }
+      if(this.match==false){
       let alert = this.alertCtrl.create({
       title: 'Usuario no encontrado',
       subTitle: 'Por favor, introduzca de nuevo sus datos o regístrese si no dispone de una cuenta',
       buttons: ['De acuerdo']
     });
     alert.present();
+  }
     }
 
 
