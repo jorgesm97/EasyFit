@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 
 @IonicPage()
@@ -12,7 +12,7 @@ export class CrearCuenta1Page {
   password;
   telefono;
   email;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
   }
 
   /*ionViewDidLoad() {
@@ -28,7 +28,13 @@ export class CrearCuenta1Page {
     let telefono = this.telefono;
     let email = this.email;
     //console.log("sending " + email);
-	if(usuario==null || password==null || telefono==null || email==null) alert("Por favor, complete los campos antes de continuar");
+	if(usuario==null || password==null || telefono==null || email==null){
+  let alert = this.alertCtrl.create({
+  title: 'Completar los campos',
+  subTitle: 'Por favor, complete los campos antes de continuar.',
+  buttons: ['De acuerdo']
+});
+alert.present();}
 	else{
     this.navCtrl.push('CrearCuenta2Page',{usuario: usuario, password: password,
   telefono: telefono, email: email});}

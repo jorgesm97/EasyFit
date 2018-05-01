@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { FirebaseDbProvider } from '../../providers/firebase-db/firebase-db';
 import { Cliente } from '../../models/cliente.model';
 import { NgModel } from '@angular/forms';
@@ -13,7 +13,7 @@ export class HomePage {
   passwordLogin;
   listaClientesInicio:any;
   public tipo;
-  constructor(public navCtrl: NavController, public dbFirebase:FirebaseDbProvider) {
+  constructor(public navCtrl: NavController, public dbFirebase:FirebaseDbProvider,  public alertCtrl:AlertController) {
 
   }
 
@@ -44,7 +44,12 @@ export class HomePage {
         }
       }
       }
-        console.log("invalid");
+      let alert = this.alertCtrl.create({
+      title: 'Usuario no encontrado',
+      subTitle: 'Por favor, introduzca de nuevo sus datos o regístrese si no dispone de una cuenta',
+      buttons: ['De acuerdo']
+    });
+    alert.present();
     }
 
 

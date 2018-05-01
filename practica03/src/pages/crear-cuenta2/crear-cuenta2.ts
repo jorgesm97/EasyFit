@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { HomePage } from '../home/home';
-/**
- * Generated class for the CrearCuenta2Page page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -24,7 +19,7 @@ export class CrearCuenta2Page {
    gender;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
     this.usuario = navParams.get("usuario");
     this.password = navParams.get("password");
     this.telefono = navParams.get("telefono");
@@ -43,7 +38,13 @@ export class CrearCuenta2Page {
     let fecha_nacimiento = this.fecha_nacimiento;
     let gender = this.gender;
     //console.log("sending 2 " + this.usuario);
-	if(nombre==null || apellidos==null || fecha_nacimiento==null || gender==null) alert("Por favor, complete los campos antes de continuar.");
+	if(nombre==null || apellidos==null || fecha_nacimiento==null || gender==null){
+  let alert = this.alertCtrl.create({
+  title: 'Completar los campos',
+  subTitle: 'Por favor, complete los campos antes de continuar.',
+  buttons: ['De acuerdo']
+});
+alert.present();}
 	else{
 		this.navCtrl.push('PrincipalPage',{usuario: this.usuario, password: this.password,
 		  telefono: this.telefono, email: this.email, nombre: nombre,
