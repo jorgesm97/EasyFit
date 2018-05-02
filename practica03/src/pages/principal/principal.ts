@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { FirebaseDbProvider } from '../../providers/firebase-db/firebase-db';
 import { Cliente } from '../../models/cliente.model';
@@ -21,10 +21,10 @@ export class PrincipalPage {
   public fecha_nacimiento;
   public tipo;
   public genero;
-  datoscliente;
   listaClientes:any;
+  cliente: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public dbFirebase:FirebaseDbProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public dbFirebase:FirebaseDbProvider, public alertCtrl:AlertController) {
     this.usuario = navParams.get("usuario");
     this.password = navParams.get("password");
     this.telefono = navParams.get("telefono");
@@ -33,18 +33,18 @@ export class PrincipalPage {
     this.apellidos = navParams.get("apellidos");
     this.fecha_nacimiento = navParams.get("fecha_nacimiento");
     this.genero = navParams.get("genero");
-    //console.log(this.usuario);
-    //console.log(this.nombre);
+    console.log(this.usuario);
+    console.log(this.nombre);
   }
 
   // Estas funciones van a agregar usuarios usando el input
   addClienteEnt()
   {
-    //console.log(this.usuario + this.nombre + this.apellidos + this.password + this.email + this.telefono + this.genero+ this.fecha_nacimiento);
     this.tipo = "entrenador";
 		let datoscliente:Cliente=new Cliente();
 
-    //Datos vienen del input de usuario
+    // los datos vienen del input de usuario
+    // hay que añadir genero
     datoscliente.nombre = this.nombre;
     datoscliente.usuario = this.usuario;
     datoscliente.password = this.password;
@@ -52,11 +52,12 @@ export class PrincipalPage {
     datoscliente.email = this.email;
     datoscliente.telefono = this.telefono;
     datoscliente.fecha_nacimiento = this.fecha_nacimiento;
+    datoscliente.genero = this.genero;
     datoscliente.tipo = this.tipo;
-    datoscliente.genero= this.genero;
 
+    this.cliente = datoscliente;
 		this.dbFirebase.guardaCliente(datoscliente).then(res=>{
-      //console.log(datoscliente.nombre + " guardado en FB");
+      console.log(datoscliente.nombre + " guardado en FireBase");
     });
     this.irPagSiguiente();
   }
@@ -75,12 +76,14 @@ export class PrincipalPage {
     datoscliente.email = this.email;
     datoscliente.telefono = this.telefono;
     datoscliente.fecha_nacimiento = this.fecha_nacimiento;
+    datoscliente.genero = this.genero;
     datoscliente.tipo = this.tipo;
 
     // se puede ver los datos guardados en firebase console -> database por el internet
 		this.dbFirebase.guardaCliente(datoscliente).then(res=>{
-      console.log(datoscliente.nombre + " guardado en FB");
+      //console.log(datoscliente.nombre + " guardado en FB");
     });
+    this.dbFirebase.getClientes().subscribe(listaClientes=>{this.listaClientes=listaClientes;})
     this.irPagSiguiente();
   }
 
@@ -89,21 +92,27 @@ export class PrincipalPage {
   }
 
   irPagSiguiente() {
-    if (this.tipo == 'entrenador') {
-      this.navCtrl.push('HomeEntrenadorPage',this.datoscliente);
+    let alert = this.alertCtrl.create({
+    title: 'Usuario registrado con éxito',
+    subTitle: 'Por favor, introduzca sus datos para acceder a su cuenta',
+    buttons: ['De acuerdo']
+  });
+  alert.present();
+    this.irHome();
+  /*  if (this.tipo == 'entrenador') {
+      this.navCtrl.push('HomeEntrenadorPage', {cliente: datoscliente, lista: this.listaClientes});
+      console.log("Entra entrenador")
     }
     if (this.tipo == 'deportista') {
-      this.navCtrl.push('HomeDeportistaPage',this.datoscliente);
+      this.navCtrl.push('HomeDeportistaPage', {cliente: datoscliente, lista:this.listaClientes});
+      console.log("Entra deportista")
     }
-    else { //Crear alerta
+    else {
       //console.log('tipo del usuario no definida');
-    }
+    }*/
   }
 
-  ionViewDidEnter()
-  {
-	  this.dbFirebase.getClientes().subscribe(listaClientes=>{this.listaClientes=listaClientes;});
-  }
+
 
   delCliente(id)
   {
@@ -111,7 +120,7 @@ export class PrincipalPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PrincipalPage');
+    //console.log('ionViewDidLoad PrincipalPage');
   }
 
   irHome() {

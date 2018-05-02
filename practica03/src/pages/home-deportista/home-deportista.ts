@@ -20,6 +20,7 @@ export class HomeDeportistaPage {
   nombre;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.cliente = navParams.get("cliente");
+    console.log(this.cliente.nombre);
     this.listaClientes = navParams.get("lista");
 
   }
@@ -32,7 +33,7 @@ export class HomeDeportistaPage {
     this.navCtrl.setRoot(HomePage);
   }
   irEntrenamiento(){
-    this.navCtrl.push('miEntrenamineto', this.cliente);
+    this.navCtrl.push('MiEntrenaminetoPage', this.cliente);
   }
   irPagAnterior() {
 	  this.navCtrl.pop();
