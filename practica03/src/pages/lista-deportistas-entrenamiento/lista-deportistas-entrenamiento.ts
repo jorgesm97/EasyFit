@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { FirebaseDbProvider } from '../../providers/firebase-db/firebase-db';
 import { Cliente } from '../../models/cliente.model';
 
 /**
@@ -18,32 +18,23 @@ import { Cliente } from '../../models/cliente.model';
 export class ListaDeportistasEntrenamientoPage {
 	listaClientes:any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-
-	  this.listaClientes= navParams.get("lista");
-
-  }
-
-  ionViewDidLoad() {
+    this.listaClientes = navParams.get("lista");
 
   }
 
-  //Terminar esta función para que devuelva la lista con los clientes de tipo deportista
+
+
   public getDeportistas():Array<Cliente>{
-    var filtrados:Array<Cliente>=[];
-	  var indice:number=0;
+    var deportistas:Array<Cliente>=[];
 	  for(var cliente of this.listaClientes)
 	  {
 		  if (cliente.tipo=="deportista")
-      filtrados.push(cliente);
-		  indice=indice+1;
-      console.log(cliente.nombre+ "añadido");
+      deportistas.push(cliente);
 	  }
-	return filtrados;
+	return deportistas;
 }
 
-  //Pasar el cliente que va a recibir el entrenamiento con la fecha
-  /*irPagSiguiente(){
-    this.navCtrl('añadirEntrenamiento', cliente);
-  }*/
-
+  public add(cliente: Cliente){
+    	  this.navCtrl.push('AñadirEntrenamientoPage', {cliente: cliente});
+  }
 }

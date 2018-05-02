@@ -1,0 +1,24 @@
+<!--
+  Generated template for the ListaEntrenadoresChatPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>listaEntrenadoresChat</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <tr *ngFor = "let cliente of getEntrenadores()">
+    <td>{{cliente.nombre}}</td>
+    <td>{{cliente.apellidos}}</td>
+    <td align="center">
+		<button type='button' (click)='add(cliente)'>Añadir</button>
+	</td>
+  </tr>
+</ion-content>

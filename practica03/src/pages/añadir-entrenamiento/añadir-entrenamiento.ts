@@ -14,8 +14,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'añadir-entrenamiento.html',
 })
 export class AñadirEntrenamientoPage {
-
+  deportista;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.deportista = navParams.get("cliente");
   }
 
   ionViewDidLoad() {

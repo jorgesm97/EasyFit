@@ -9,9 +9,12 @@
 
 
 <ion-content padding>
-
-  <tr *ngFor='let id of getDeportistas(); let i=index'>
-  	<td>{{clientes[id].nombre | uppercase}}</td>
-    <button type='button'>Añadir</button>
+  <tr *ngFor = "let cliente of getDeportistas()">
+    <td>{{cliente.nombre}}</td>
+    <td>{{cliente.apellidos}}</td>
+    <td align="center">
+		<button type='button' (click)='add(cliente)'>Añadir</button>
+	</td>
   </tr>
+
 </ion-content>
