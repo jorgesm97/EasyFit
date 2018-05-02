@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import {NavController, AlertController } from 'ionic-angular';
 import { FirebaseDbProvider } from '../../providers/firebase-db/firebase-db';
-import { Cliente } from '../../models/cliente.model';
-import { NgModel } from '@angular/forms';
+
 
 @Component({
   selector: 'page-home',

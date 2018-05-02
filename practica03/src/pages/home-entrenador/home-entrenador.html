@@ -1,3 +1,10 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>EasyFit</ion-title>
+  </ion-navbar>
+
+</ion-header>
 <ion-content padding>
   <h1>Bienvenido, {{this.cliente.nombre}} </h1>
   <hr/>
@@ -5,38 +12,34 @@
 <ion-grid>
   <ion-row>
     <ion-col>
-      <button ion-button class="nav-btn"large color="light" (click)="irEntrenamientos()">
+      <button ion-button class="nav-btn"large color="primary" (click)="irEntrenamientos()">
         <ion-icon  name="people"></ion-icon>
       </button><br/>
-      Entrenamientos
+      <p>Entrenamientos</p>
     </ion-col>
     <ion-col>
-      <button ion-button class="nav-btn" large color="light" (click)="irChat()">
+      <button ion-button class="nav-btn" large color="secondary" (click)="irChat()">
         <ion-icon  name="chatbubbles"></ion-icon>
       </button><br/>
-      Chat
+      <p>Chat</p>
     </ion-col>
   </ion-row>
   <ion-row>
     <ion-col>
-      <button ion-button class="nav-btn" large color="light">
+      <button ion-button class="nav-btn" large color="tercero">
         <ion-icon name="stats"></ion-icon>
       </button><br/>
-      Stats
+      <p>Estadísticas</p>
     </ion-col>
     <ion-col>
-      <button ion-button class="nav-btn" large color="light">
+      <button ion-button class="nav-btn" large color="cuarto" (click)="irAjustes()">
         <ion-icon  name="settings"></ion-icon>
       </button><br/>
-      Ajustes
+      <p>Ajustes</p>
     </ion-col>
   </ion-row>
 </ion-grid>
 
-<br/><br/><br/><br/><br/><br/><br/><br/><br/>
-  <button ion-button small color="light"(click)="irPagAnterior()">
-    Log out
-  </button>
 
 <ion-content padding>
 

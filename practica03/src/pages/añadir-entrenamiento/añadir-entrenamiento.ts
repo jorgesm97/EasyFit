@@ -21,12 +21,8 @@ export class AñadirEntrenamientoPage {
   ejercicio;
   constructor(public navCtrl: NavController, public navParams: NavParams, public dbFirebase:FirebaseDbProvider, public alertCtrl: AlertController) {
     this.deportista = navParams.get("cliente");
-  //  console.log(this.deportista.nombre);
   }
 
-  ionViewDidLoad() {
-    //console.log('ionViewDidLoad AñadirEntrenamientoPage');
-  }
 
   addEntrenamiento(){
     let fecha_entrenamiento = this.fecha_entrenamiento;
@@ -45,7 +41,6 @@ export class AñadirEntrenamientoPage {
 
 		this.deportista.entrenamientos.push([fecha_entrenamiento, ejercicio]);
 		this.dbFirebase.guardaCliente(this.deportista).then(res=>{
-			//console.log(this.deportista.nombre + " guardado en FB");
 		});
 		this.irPagSiguiente();
 	}
@@ -56,7 +51,6 @@ export class AñadirEntrenamientoPage {
   eliminar(id){
     this.deportista.entrenamientos.splice(id,1);
     this.dbFirebase.guardaCliente(this.deportista).then(res=>{
-      //console.log(this.deportista.nombre + " guardado en FB");
     })
   }
   irPagSiguiente(){

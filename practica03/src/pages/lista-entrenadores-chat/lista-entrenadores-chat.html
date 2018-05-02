@@ -9,8 +9,8 @@
 
 
 <ion-content padding>
-  <ion-grid text-align="center">
-  <ion-row *ngFor = "let cliente of getEntrenadores()">
+  <ion-grid text-align="center" style="height=100%">
+  <ion-row *ngFor = "let cliente of getEntrenadores()" justify-content-center align-items-center style="height: 100%">
     <br/> <br/>  <br/><br/>  <br/>
     <ion-col align="center">{{cliente.nombre | uppercase}}</ion-col>
     <ion-col align="center">{{cliente.apellidos |uppercase}}</ion-col>

@@ -1,0 +1,33 @@
+<!--
+  Generated template for the AjustesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Menú Ajustes</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <button ion-button class="nav-btn"large color="danger" (click)="eliminarCuenta()">
+          <ion-icon  name="trash"></ion-icon>
+        </button><br/>
+        <p>Eliminar cuenta</p>
+      </ion-col>
+      <ion-col>
+        <button ion-button class="nav-btn"large color="light" (click)="salir()">
+          <ion-icon  name="swap"></ion-icon>
+        </button><br/>
+        <p>Cerrar sesión</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

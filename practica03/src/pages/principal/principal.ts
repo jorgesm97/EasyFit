@@ -20,7 +20,7 @@ export class PrincipalPage {
   public apellidos;
   public fecha_nacimiento;
   public tipo;
-  public genero; 
+  public genero;
   public entrenamiento;
   listaClientes:any;
   cliente: any;
@@ -136,7 +136,6 @@ export class PrincipalPage {
 	  datoscliente.id=id;
 	  datoscliente.nombre="Maria";
 	  datoscliente.apellidos="de las mercedes";
-
 	  this.dbFirebase.guardaCliente(datoscliente);
   }
 

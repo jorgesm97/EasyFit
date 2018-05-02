@@ -20,7 +20,6 @@ export class HomeDeportistaPage {
   nombre;
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
     this.cliente = navParams.get("cliente");
-    //console.log(this.cliente.nombre);
     this.listaClientes = navParams.get("lista");
 
   }
@@ -50,5 +49,8 @@ export class HomeDeportistaPage {
   }
   irChat(){
   this.navCtrl.push('ListaEntrenadoresChatPage', {cliente: this.cliente, lista: this.listaClientes});
+  }
+  irAjustes(){
+    this.navCtrl.push('AjustesPage', {cliente: this.cliente});
   }
 }

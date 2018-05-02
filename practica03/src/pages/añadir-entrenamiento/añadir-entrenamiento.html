@@ -31,16 +31,16 @@
   </ion-row>
 
 <br/> <br/><br/><br/>
-
 <ion-grid>
-  <ion-row>
+  <ion-row justify-content-center align-items-center>
   <ion-col style="font-weight: bold; font-size:18px" text-center>Entrenamientos pendientes</ion-col>
 </ion-row>
-  <ion-row>
+<br/>
+  <ion-row justify-content-center align-items-center>
     <ion-col style="font-weight: bold;font-size:15px">FECHA</ion-col>
     <ion-col style="font-weight: bold;font-size:15px ">ENTRENAMIENTO</ion-col>
   </ion-row>
-  <ion-row *ngFor = "let entrenamiento of getlista(); let i=index">
+  <ion-row *ngFor = "let entrenamiento of getlista(); let i=index" justify-content-center align-items-center>
     <ion-col>{{entrenamiento[0]}}</ion-col>
     <ion-col>{{entrenamiento[1] | uppercase }}</ion-col>
     <ion-col><button color="primary" class="complete" ion-button small (click)='eliminar(i)'>ELIMINAR</button></ion-col>

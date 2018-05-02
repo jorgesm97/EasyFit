@@ -39,4 +39,7 @@ export class HomeEntrenadorPage {
   irChat(){
     this.navCtrl.push('ListaDeportistasChatPage', {cliente: this.cliente, lista: this.listaClientes});
   }
+  irAjustes(){
+    this.navCtrl.push('AjustesPage', {cliente: this.cliente});
+  }
 }

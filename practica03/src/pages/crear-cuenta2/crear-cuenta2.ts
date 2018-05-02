@@ -37,7 +37,7 @@ export class CrearCuenta2Page {
     let apellidos = this.apellidos;
     let fecha_nacimiento = this.fecha_nacimiento;
     let gender = this.gender;
-    let entrenamientos:any;
+    //let entrenamientos:any;
     //console.log("sending 2 " + this.usuario);
 	if(nombre==null || apellidos==null || fecha_nacimiento==null || gender==null){
   let alert = this.alertCtrl.create({

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { FirebaseDbProvider } from '../../providers/firebase-db/firebase-db';
+//import { FirebaseDbProvider } from '../../providers/firebase-db/firebase-db';
 import { Cliente } from '../../models/cliente.model';
 /**
  * Generated class for the ListaEntrenadoresChatPage page.
