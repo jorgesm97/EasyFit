@@ -10,9 +10,11 @@ export class Cliente {
     public telefono: number;
     public email: string;
     public tipo: string;
+	public entrenamientos: Array<[Date, string]>;
 
 	constructor()
 	{
 		this.id="";
+		this.entrenamientos=[];
 	}
 }

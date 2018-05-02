@@ -32,7 +32,7 @@ export class HomeDeportistaPage {
     this.navCtrl.setRoot(HomePage);
   }
   irEntrenamiento(){
-    this.navCtrl.push('miEntrenamiento', this.cliente);
+    this.navCtrl.push('miEntrenamineto', this.cliente);
   }
   irPagAnterior() {
 	  this.navCtrl.pop();

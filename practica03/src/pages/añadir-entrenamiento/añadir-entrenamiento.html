@@ -1,18 +1,37 @@
-<!--
-  Generated template for the AñadirEntrenamientoPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>Añadir Entrenamiento</ion-title>
+    <ion-title>
+      EasyFit
+    </ion-title>
   </ion-navbar>
-
 </ion-header>
 
+<ion-navbar>
+  <ion-title>Añadir Entrenamiento</ion-title>
+</ion-navbar>
 
 <ion-content padding>
+
+
+  <h1>Añadir Entrenamiento</h1>
+  
+    <div>
+    <ion-item>
+      <ion-label fixed>Fecha</ion-label>
+      <ion-input type="date" [(ngModel)]="fecha_entrenamiento"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Ejercicio</ion-label>
+      <ion-input type="text"  [(ngModel)]="ejercicio"></ion-input>
+    </ion-item>
+  </div>
+  
+  <br/>
+  <ion-row>
+  <button ion-button class="nav-btn" (click)="addEntrenamiento()">
+    Añadir
+  </button>
+  </ion-row>
 
 </ion-content>

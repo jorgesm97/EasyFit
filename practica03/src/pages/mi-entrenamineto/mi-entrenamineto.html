@@ -15,4 +15,14 @@
 
 <ion-content padding>
 
+  <tr>
+    <th>Fecha</th>
+    <th>Entrenamiento</th>
+  </tr>
+  <tr *ngFor = "let entrenamiento of getEntrenamientos()">
+    <td>{{entrenamiento[0]}}</td>
+    <td>{{entrenamiento[1]}}</td>
+  </tr>
+
+
 </ion-content>
