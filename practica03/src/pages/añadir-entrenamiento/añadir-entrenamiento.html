@@ -1,20 +1,16 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      EasyFit
+      Añadir Entrenamiento
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-navbar>
-  <ion-title>Añadir Entrenamiento</ion-title>
-</ion-navbar>
-
 <ion-content padding>
 
 
-  <h1>Añadir Entrenamiento</h1>
-  
+  <h5 text-center>Introduce una fecha y un entramiento para este deportista, {{this.deportista.nombre}}</h5>
+
     <div>
     <ion-item>
       <ion-label fixed>Fecha</ion-label>
@@ -26,12 +22,29 @@
       <ion-input type="text"  [(ngModel)]="ejercicio"></ion-input>
     </ion-item>
   </div>
-  
-  <br/>
   <ion-row>
-  <button ion-button class="nav-btn" (click)="addEntrenamiento()">
-    Añadir
+    <ion-item>
+  <button ion-button item-right large style="font-size:15px" color="secondary" (click)="addEntrenamiento()">
+    AÑADIR
   </button>
+</ion-item>
   </ion-row>
+
+<br/> <br/><br/><br/>
+
+<ion-grid>
+  <ion-row>
+  <ion-col style="font-weight: bold; font-size:18px" text-center>Entrenamientos pendientes</ion-col>
+</ion-row>
+  <ion-row>
+    <ion-col style="font-weight: bold;font-size:15px">FECHA</ion-col>
+    <ion-col style="font-weight: bold;font-size:15px ">ENTRENAMIENTO</ion-col>
+  </ion-row>
+  <ion-row *ngFor = "let entrenamiento of getlista(); let i=index">
+    <ion-col>{{entrenamiento[0]}}</ion-col>
+    <ion-col>{{entrenamiento[1] | uppercase }}</ion-col>
+    <ion-col><button color="primary" class="complete" ion-button small (click)='eliminar(i)'>ELIMINAR</button></ion-col>
+  </ion-row>
+</ion-grid>
 
 </ion-content>

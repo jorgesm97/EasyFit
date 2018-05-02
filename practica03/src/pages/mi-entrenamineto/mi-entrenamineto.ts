@@ -17,8 +17,9 @@ import { Cliente } from '../../models/cliente.model';
 })
 export class MiEntrenaminetoPage {
   client:Cliente;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public dbFirebase: FirebaseDbProvider) {
 	  this.client = navParams.get("cliente");
+    console.log(this.client.nombre);
   }
 
   public getEntrenamientos():Array<[Date, string]>{
@@ -27,6 +28,12 @@ export class MiEntrenaminetoPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MiEntrenaminetoPage');
+  }
+  public eliminar(id){
+    this.client.entrenamientos.splice(id,1);
+    this.dbFirebase.guardaCliente(this.client).then(res=>{
+			//console.log(this.deportista.nombre + " guardado en FB");
+		})
   }
 
 }

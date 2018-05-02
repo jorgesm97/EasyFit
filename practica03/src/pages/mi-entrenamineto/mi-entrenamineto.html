@@ -7,22 +7,23 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>miEntrenamineto</ion-title>
+    <ion-title>Mis ejercicios</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
-  <tr>
-    <th>Fecha</th>
-    <th>Entrenamiento</th>
-  </tr>
-  <tr *ngFor = "let entrenamiento of getEntrenamientos()">
-    <td>{{entrenamiento[0]}}</td>
-    <td>{{entrenamiento[1]}}</td>
-  </tr>
-
+<ion-grid>
+  <ion-row>
+    <ion-col style="font-weight: bold;font-size:15px">FECHA</ion-col>
+    <ion-col style="font-weight: bold;font-size:15px ">ENTRENAMIENTO</ion-col>
+  </ion-row>
+  <ion-row *ngFor = "let entrenamiento of getEntrenamientos(); let i=index">
+    <ion-col>{{entrenamiento[0]}}</ion-col>
+    <ion-col>{{entrenamiento[1] | uppercase }}</ion-col>
+    <ion-col><button color="primary" class="complete" ion-button (click)='eliminar(i)'>COMPLETADO</button></ion-col>
+  </ion-row>
+</ion-grid>
 
 </ion-content>

@@ -21,11 +21,11 @@ export class AñadirEntrenamientoPage {
   ejercicio;
   constructor(public navCtrl: NavController, public navParams: NavParams, public dbFirebase:FirebaseDbProvider, public alertCtrl: AlertController) {
     this.deportista = navParams.get("cliente");
-    console.log(this.deportista.nombre);
+  //  console.log(this.deportista.nombre);
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AñadirEntrenamientoPage');
+    //console.log('ionViewDidLoad AñadirEntrenamientoPage');
   }
 
   addEntrenamiento(){
@@ -42,15 +42,23 @@ export class AñadirEntrenamientoPage {
 		if(this.deportista.entrenamientos == null){
 			this.deportista.entrenamientos = [];
 		}
-			
+
 		this.deportista.entrenamientos.push([fecha_entrenamiento, ejercicio]);
 		this.dbFirebase.guardaCliente(this.deportista).then(res=>{
-			console.log(this.deportista.nombre + " guardado en FB");
+			//console.log(this.deportista.nombre + " guardado en FB");
 		});
 		this.irPagSiguiente();
 	}
   }
-
+  getlista():Array<[Date, string]>{
+	return this.deportista.entrenamientos;
+  }
+  eliminar(id){
+    this.deportista.entrenamientos.splice(id,1);
+    this.dbFirebase.guardaCliente(this.deportista).then(res=>{
+      //console.log(this.deportista.nombre + " guardado en FB");
+    })
+  }
   irPagSiguiente(){
     this.navCtrl.pop();
   }

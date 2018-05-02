@@ -20,7 +20,7 @@ export class HomeDeportistaPage {
   nombre;
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
     this.cliente = navParams.get("cliente");
-    console.log(this.cliente.nombre);
+    //console.log(this.cliente.nombre);
     this.listaClientes = navParams.get("lista");
 
   }
@@ -42,7 +42,8 @@ export class HomeDeportistaPage {
 				alert.present();
 	  }
 	  else{
-	  this.navCtrl.push('MiEntrenaminetoPage', {cliente:this.cliente});}
+	  this.navCtrl.push('MiEntrenaminetoPage',{cliente: this.cliente});
+  }
   }
   irPagAnterior() {
 	  this.navCtrl.pop();
