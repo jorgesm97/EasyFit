@@ -16,7 +16,7 @@ import { Cliente } from '../../models/cliente.model';
   templateUrl: 'mi-entrenamineto.html',
 })
 export class MiEntrenaminetoPage {
-  client;
+  client:Cliente;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 	  this.client = navParams.get("cliente");
   }

@@ -20,7 +20,8 @@ export class PrincipalPage {
   public apellidos;
   public fecha_nacimiento;
   public tipo;
-  public genero;
+  public genero; 
+  public entrenamiento;
   listaClientes:any;
   cliente: any;
 
@@ -33,6 +34,7 @@ export class PrincipalPage {
     this.apellidos = navParams.get("apellidos");
     this.fecha_nacimiento = navParams.get("fecha_nacimiento");
     this.genero = navParams.get("genero");
+	this.entrenamiento = [];
     console.log(this.usuario);
     console.log(this.nombre);
   }
@@ -78,7 +80,7 @@ export class PrincipalPage {
     datoscliente.fecha_nacimiento = this.fecha_nacimiento;
     datoscliente.genero = this.genero;
     datoscliente.tipo = this.tipo;
-
+	datoscliente.entrenamientos = this.entrenamiento;
     // se puede ver los datos guardados en firebase console -> database por el internet
 		this.dbFirebase.guardaCliente(datoscliente).then(res=>{
       //console.log(datoscliente.nombre + " guardado en FB");

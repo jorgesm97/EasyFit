@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController} from 'ionic-angular';
 import { HomePage } from '../home/home';
-
+import { Cliente } from '../../models/cliente.model';
 /**
  * Generated class for the HomeDeportistaPage page.
  *
@@ -15,10 +15,10 @@ import { HomePage } from '../home/home';
   templateUrl: 'home-deportista.html',
 })
 export class HomeDeportistaPage {
-  cliente:any;
+  public cliente:Cliente;
   listaClientes:any;
   nombre;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
     this.cliente = navParams.get("cliente");
     console.log(this.cliente.nombre);
     this.listaClientes = navParams.get("lista");
@@ -33,7 +33,16 @@ export class HomeDeportistaPage {
     this.navCtrl.setRoot(HomePage);
   }
   irEntrenamiento(){
-    this.navCtrl.push('MiEntrenaminetoPage', this.cliente);
+	  if(this.cliente.entrenamientos==null){
+		  let alert = this.alertCtrl.create({
+				title: 'No hay ejercicios disponibles',
+				subTitle: 'Tendrá que esperar a que su entrenador, le suba alguno.',
+				buttons: ['De acuerdo']
+				});
+				alert.present();
+	  }
+	  else{
+	  this.navCtrl.push('MiEntrenaminetoPage', this.cliente);}
   }
   irPagAnterior() {
 	  this.navCtrl.pop();

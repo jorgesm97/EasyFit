@@ -16,7 +16,7 @@ import { Cliente } from '../../models/cliente.model';
   templateUrl: 'añadir-entrenamiento.html',
 })
 export class AñadirEntrenamientoPage {
-  deportista:any;
+  deportista:Cliente;
   fecha_entrenamiento;
   ejercicio;
   constructor(public navCtrl: NavController, public navParams: NavParams, public dbFirebase:FirebaseDbProvider, public alertCtrl: AlertController) {
@@ -39,9 +39,11 @@ export class AñadirEntrenamientoPage {
 		});
 	alert.present();}
 	else{
-    
+		if(this.deportista.entrenamientos == null){
+			this.deportista.entrenamientos = [];
+		}
+			
 		this.deportista.entrenamientos.push([fecha_entrenamiento, ejercicio]);
-
 		this.dbFirebase.guardaCliente(this.deportista).then(res=>{
 			console.log(this.deportista.nombre + " guardado en FB");
 		});
