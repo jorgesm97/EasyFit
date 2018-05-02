@@ -35,6 +35,6 @@ export class ListaDeportistasChatPage {
 }
 
   public add(cliente: Cliente){
-    	  this.navCtrl.push('AñadirEntrenamientoPage', {cliente: cliente});
+    	  //this.navCtrl.push('AñadirEntrenamientoPage', {cliente: cliente});
   }
 }

@@ -37,6 +37,6 @@ export class HomeEntrenadorPage {
 	  this.navCtrl.pop();
   }
   irChat(){
-    this.navCtrl.push('ListaDeportistasChatPage', {cliente: this.cliente, lista: this.listaClientes})
+    this.navCtrl.push('ListaDeportistasChatPage', {cliente: this.cliente, lista: this.listaClientes});
   }
 }

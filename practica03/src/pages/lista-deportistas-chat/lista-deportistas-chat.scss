@@ -1,3 +1,16 @@
 page-lista-deportistas-chat {
-
-}
+  $grid-padding-width:         10px !default;
+  .nav-btn{
+    border: 1px solid #ffffff;
+    font-size: 15px;
+  }
+  ion-col{
+    vertical-align: middle;
+    text-align: center;
+  }
+  ion-row{
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+  }
+  }

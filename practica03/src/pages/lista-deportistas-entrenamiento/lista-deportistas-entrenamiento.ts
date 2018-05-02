@@ -23,7 +23,6 @@ export class ListaDeportistasEntrenamientoPage {
   }
 
 
-
   public getDeportistas():Array<Cliente>{
     var deportistas:Array<Cliente>=[];
 	  for(var cliente of this.listaClientes)

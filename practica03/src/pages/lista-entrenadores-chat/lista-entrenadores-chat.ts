@@ -17,9 +17,10 @@ import { Cliente } from '../../models/cliente.model';
 export class ListaEntrenadoresChatPage {
   listaClientes:any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.listaClientes = navParams.get("lista");
-
+      this.listaClientes = navParams.get("lista");
   }
+
+
 
   public getEntrenadores():Array<Cliente>{
     var entrenadores:Array<Cliente>=[];
@@ -30,10 +31,8 @@ export class ListaEntrenadoresChatPage {
 	  }
 	return entrenadores;
 }
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ListaEntrenadoresChatPage');
-  }
+
   public add(cliente: Cliente){
-    	 // this.navCtrl.push('chat',{cliente: cliente});
+    	 // this.navCtrl.push('AñadirEntrenamientoPage', {cliente: cliente});
   }
 }
