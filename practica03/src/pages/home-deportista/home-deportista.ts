@@ -42,7 +42,7 @@ export class HomeDeportistaPage {
 				alert.present();
 	  }
 	  else{
-	  this.navCtrl.push('MiEntrenaminetoPage', this.cliente);}
+	  this.navCtrl.push('MiEntrenaminetoPage', {cliente:this.cliente});}
   }
   irPagAnterior() {
 	  this.navCtrl.pop();
